@@ -207,28 +207,6 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 <p>Després del reboot</p>
 <h1 id="servidor-samba">Servidor samba</h1>
 <h1 id="copies-de-seguretat">Còpies de seguretat</h1>
-<h2 id="index-de-lapartat">Índex de l’apartat</h2>
-<ul>
-<li>
-<p>Conceptes teòrics</p>
-<p>Còpies de seguretat completes</p>
-<p>Còpies de seguretat Diferencials</p>
-<p>Còpies de seguretat Incrementals</p>
-</li>
-<li>
-<p>Programes en interfície: “Deja-Dup”, Duplicity i altres</p>
-<p>“Dejà Dup”</p>
-</li>
-<li>
-<p>Comandes</p>
-<p>“cp”</p>
-<p>“rsync”</p>
-<p>“dd”</p>
-</li>
-<li>
-<p>Automatització</p>
-</li>
-</ul>
 <h2 id="conceptes-teorics">Conceptes teòrics</h2>
 <p>S’ha d’establir una bona política de còpies de seguretat per al que cal conèixer els següents conceptes respecte als tipus de còpies de seguretat:</p>
 <ul>
@@ -258,7 +236,32 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 <p><img alt="imagen.png" src="../Sprint2%201431cc235019804a8767d862f759d878/imagen%208.png" /></p>
 <p>Primer fem la còpia al disc dur. Després, al montar-lo a la carpeta “copia_dades_de_dades” apareixen els arxius resultants de la còpia (no es mostraven abans ja que el disc no estava muntat, però això ja s’ha vist a l’apartat de particions)</p>
 <p><img alt="imagen.png" src="../Sprint2%201431cc235019804a8767d862f759d878/imagen%209.png" /></p>
-<p>A l’ultima imatge, els hash no són iguals ja que a l’hora de fer la còpia hem utilitzat 4M per la velocitat, i alguna cosa haurà anat diferent, al refer la còpia amb 1M la còpia acaba resultant perfecta i els arxius i estructures de dades son iguals resultant en un hash idèntic per totes dues particions.</p></p>
+<p>A l’ultima imatge, els hash no són iguals ja que a l’hora de fer la còpia hem utilitzat 4M per la velocitat, i alguna cosa haurà anat diferent, al refer la còpia amb 1M la còpia acaba resultant perfecta i els arxius i estructures de dades son iguals resultant en un hash idèntic per totes dues particions.</p>
+<h2 id="automatitzacio-dscripts-i-cron-i-anacron">Automatització d’scripts i cron i anacron</h2>
+<h2 id="teoria">Teoria</h2>
+<h3 id="diferencies-entre-anacron-i-cron">Diferències entre anacron i cron</h3>
+<p>En sistemes operatius anteriors funcionaven per separat, ara estan integrats i funcionen de forma conjunta. Serveixen per automatitzar tasques. Veurem quan utilitzar un i l’altre:</p>
+<p><strong>Anacron</strong>: L’utilitzarem quan un ordinador pugue estar apagat, ja que en engegar-se anacron detecta que hi ha una tasca no executada i l’executa. L’utilitzarem també quan sigue una automatització general a nivell general i de SO</p>
+<p><strong>Cron:</strong> Quan executem alguna cosa molt concreta a una hora determinada i pensem que l’ordinador estarà engegat.</p>
+<p>Opcions cron: utilitzarem /etc/crontab quan volem executar alguna cosa globalment per tot els usuaris. </p>
+<p>Quan volem definir alguna cosa específica per algun usuari en particular utilitzarem:</p>
+<p><em>crontab -e -u usuari</em></p>
+<p>Dintre del directori /etc/cron/ hi ha carpetes preparades.</p>
+<h2 id="practica">Pràctica</h2>
+<p>En l’exemple següent creem un script per crear un arxiu de forma automatitzada en engegar l’ordinador.</p>
+<p><img alt="image.png" src="../Sprint2%201431cc235019804a8767d862f759d878/image.png" /></p>
+<p>Obrim un editor de text (<code>nano</code>) per crear un script bash  “<code>copia.sh</code>".</p>
+<p>Dins l'script, utilitzem una comanda <code>tar</code> per crear un arxiu comprimit (<code>tar.gz</code>) del directori <code>Documents</code>. El nom del fitxer conté un <code>timestamp</code> que indica la data i hora d'execució. Guardem l'script i canviem els permisos amb <code>chmod +x copia.sh</code> per fer-lo executable.</p>
+<p><img alt="image.png" src="../Sprint2%201431cc235019804a8767d862f759d878/image%201.png" /></p>
+<p>Verifiquem que el fitxer s'ha creat correctament utilitzant <code>ls</code>.</p>
+<p>Executem l'script manualment amb <code>./copia.sh</code> i observem que es genera l'arxiu comprimit al directori indicat, a <code>Escritorio</code>.</p>
+<p><img alt="image.png" src="../Sprint2%201431cc235019804a8767d862f759d878/image%202.png" /></p>
+<p>Editem el fitxer de configuració de <code>cron</code> (<code>/etc/crontab</code>) per programar l'execució automàtica de l'script. Especifiquem que l'script s'executi en una data i hora concreta. Per exemple, a les 12:14 del dia 9 del mes 1 (gener) i el dia de la setmana 4 (dijous).</p>
+<p><img alt="image.png" src="../Sprint2%201431cc235019804a8767d862f759d878/image%203.png" /></p>
+<p>Comprovem que la programació està configurada i copiem l'script al directori <code>cron.daily</code> per assegurar que s'executi diàriament si és necessari.</p>
+<p><img alt="image.png" src="../Sprint2%201431cc235019804a8767d862f759d878/image%204.png" /></p>
+<h2 id="conclusio">Conclusió</h2>
+<p>Aquest procés ens permet configurar un sistema automàtic de còpies de seguretat amb un script d’execució automàtica utilitzant cron.</p></p>
     </article>
 </section>
             <!-- endblock -->
