@@ -198,7 +198,7 @@
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2017.png" /></p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2018.png" /></p>
 <hr />
-<h2 id="un-cop-a-la-maquina-client">Un cop a la maquina client</h2>
+<h3 id="un-cop-a-la-maquina-client">Un cop a la maquina client</h3>
 <p>Instal·lem el “nscd”: un dimoni (programa en segon pla) que s’encarrega d’emmagatzemar la memòria cau(cache). Instal·lem també una llibreria que ens permetrà fer la connexió al domini “ldap” des del client amb <code>apt install libnss-ldap</code>.</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2019.png" /></p>
 <p>Fiquem la “ip” del server (sense la “i” i en 2 barres) per conectar-nos.</p>
@@ -237,36 +237,40 @@
 <p>Un cop tenim un domini creat hem de ser capaços de gestinar-lo, ja sigui afegint, eliminant o modificant paràmetres del mateix.</p>
 <p>Per fer-ho hem eliminat l’antiga base i n’hem creat una de nova amb <code>dpkg-reconfigure slapd</code></p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2036.png" /></p>
-<p>Un breu video per mostra el procés de configuració pas per pas:</p>
+<p><strong><em>Un breu video per mostra el procés de configuració pas per pas:</em></strong></p>
 <p><a href="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/dpkg-reconfigure.mp4">dpkg-reconfigure.mp4</a></p>
+<hr />
+<h2 id="ldapsearch"><code>ldapsearch</code></h2>
+<p>Una de les coses que podem fer per gestionar la nostra base de dades és filtrar per “uid”, una de les entrades que, en principi, ha de ser única per a cada entrada. Aixó ens mostra totes les dades que hi ha assignades a l’entrada en qüestió.</p>
+<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2037.png" /></p>
+<p>També podem filtrar per coses més concretes. Podem, per exemple, filtrar per tots aquells usuaris que disposen d’un objecte “mail” que utilitzi el domini “example.com”. Si hi hagués objectes “mail” amb altres dominis no es mostrarien després de fer aquesta comanda.</p>
+<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2038.png" /></p>
+<p>A més, podem fer una cerca que ens mostre només els objectes que ens interessen:</p>
+<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2039.png" /></p>
+<p>En aquesta, hem afegit al final de la comanda: “dn” “cn” i “mail” com als únics camps que volem rebre de la cerca.</p>
 <h2 id="afegir-dades">Afegir dades</h2>
 <h3 id="primera-opcio-per-afegir-dades">Primera opció per afegir dades</h3>
-<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2037.png" /></p>
+<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2040.png" /></p>
 <p>Afegim la base de dades al domini, que afegeix dos “ou” o unitats organitzatives: una per als grup i una altra per als usuaris.</p>
 <p>També afegeix múltiples entrades per a cada grup.</p>
-<h3 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades</h3>
-<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2038.png" /></p>
-<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2039.png" /></p>
-<p>En aquest cas hem afegit manualment una ou a la base de dades, que es mostra juntament amb les altres dues anteriors.</p>
-<p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2040.png" /></p>
 <hr />
+<h3 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades</h3>
+<p>En aquest cas hem afegit manualment una ou a la base de dades, que es mostra juntament amb les altres dues anteriors.</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2041.png" /></p>
-<p>Una de les coses que podem fer per gestionar la nostra base de dades és filtrar per “uid”, que és la identificació dintre la base de cada individu (en el cas de que sigui amb gent amb qui treballem a la nostra base). Aixó ens mostra totes les dades que hi ha assignades a l’ientrada en qüestió.</p>
-<p>També podem filtrar per coses més concretes. Podem, per exemple, filtrar per tots aquells usuaris que disposen d’un objecte “mail” que utilitzi el domini “example.com”. Si hi hagués objectes “mail” amb altres dominis no es mostrarien després de fer aquesta comanda.</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2042.png" /></p>
-<p>També podem fer una cerca que ens mostran només els objectes que ens interessen:</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2043.png" /></p>
-<p>En aquesta, hem afegit al final de la comanda: “dn” “cn” i “mail” com a camps que voliem rebre de la cerca i no cap altre.</p>
-<h2 id="modificar-dades">Modificar dades</h2>
-<p>Imaginem que les dades que hem afegit amb la segona opció han estat incorrectes i volem modificar-les.</p>
+<p>Com a resultat, obtenim una nova “ou”.</p>
+<hr />
+<p>Ara, imaginem que les dades que hem afegit amb la segona opció han estat incorrectes i volem modificar-les.</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2044.png" /></p>
-<p>Podem, per exemple, cambiar l’ou de manera que prova ara forma part de la ou groups</p>
+<p>Podem, per exemple, cambiar “l’ou” de manera que prova ara forma part de la “ou” “groups”.</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2045.png" /></p>
 <hr />
 <p>Si per exemple volem cambiar el nom de la ou “prova” a “provahola” ho hem de fer de la següent forma:</p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2046.png" /></p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2047.png" /></p>
 <p><img alt="image.png" src="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/image%2048.png" /></p>
+<p>Aquests són processos que veurem més avant a l’apartat <strong>Per Modificar Dades</strong></p>
 <hr />
 <h2 id="esborrar-dades">Esborrar dades</h2>
 <p>Per esborra dades utilitzarem el següent procés:</p>
