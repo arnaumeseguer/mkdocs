@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Sprint 3 - My Docs</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Sprint 3", url: "#_top", children: [
+          ]},
+          {title: "INSTAL\u00b7LACI\u00d3 DEL DOMINI LDAP", url: "#installacio-del-domini-ldap", children: [
+          ]},
+          {title: "2. Unir equips al domini", url: "#2-unir-equips-al-domini", children: [
+              {title: "Un cop a la maquina client", url: "#un-cop-a-la-maquina-client" },
+          ]},
+          {title: "3. Gesti\u00f3 del domini LDAP", url: "#3-gestio-del-domini-ldap", children: [
+              {title: "ldapsearch", url: "#ldapsearch" },
+              {title: "Afegir dades", url: "#afegir-dades" },
+              {title: "Esborrar dades", url: "#esborrar-dades" },
+              {title: "Per modificar dades", url: "#per-modificar-dades" },
+          ]},
+          {title: "Entorn Gr\u00e0fic - Apache Studio", url: "#entorn-grafic-apache-studio", children: [
+              {title: "Afegir una nova entrada \u201calu2\u201d", url: "#afegir-una-nova-entrada-alu2" },
+              {title: "Copiar l\u2019entrada ja existent de \u201calu1\u201d i cambiar les dades necess\u00e0ries", url: "#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" },
+          ]},
+          {title: "SAMBA", url: "#samba", children: [
+              {title: "Instal\u00b7laci\u00f3 del servidor", url: "#installacio-del-servidor" },
+              {title: "Crear usuaris a Samba", url: "#crear-usuaris-a-samba" },
+              {title: "Afegir usuaris a Samba", url: "#afegir-usuaris-a-samba" },
+              {title: "Client Samba", url: "#client-samba" },
+          ]},
+          {title: "COMPARTIR RECURSOS", url: "#compartir-recursos", children: [
+              {title: "Servidor NFS", url: "#servidor-nfs" },
+              {title: "CONFIGURACIONS DELS CLIENTS", url: "#configuracions-dels-clients" },
+              {title: "NFS 3. PERFILS M\u00d2BILS", url: "#nfs-3-perfils-mobils" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-link">
+        Sprint2
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../MainPage/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../MainPage/" class="btn btn-xs btn-link">
+        Arnau Meseguer Sancho
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="sprint-3">Sprint 3</h1>
+<h1 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP</h1>
+<p>Primer canviem el hostname i afegim el nom del domini que estarem utilitzant durant la manipulació del ldap.</p>
+<p><img alt="image.png" src="../image.png" /></p>
+<p><img alt="image.png" src="../image%201.png" /></p>
+<p><img alt="image.png" src="../48ad6ffb-263e-4d1a-b575-0342f912cf2f.png" /></p>
+<p>Ara, instal·lem els recursos necessaris per utilitzar l’ldap i configurem una contrasenya.</p>
+<p><img alt="image.png" src="../image%202.png" /></p>
+<p><img alt="image.png" src="../image%203.png" /></p>
+<p><strong>Per fer la base del domini hi ha dos opcions:</strong></p>
+<ul>
+<li>fer-ho a través dels arxius base .ldif</li>
+<li>fer-ho a través d’una comanda (la que utilitzarem nosaltres)</li>
+</ul>
+<p><img alt="image.png" src="../image%204.png" /></p>
+<p>Durant el procés seleccionem gairebé totes les opcions per defecte, ja que per al que volem fer, és més que suficient.</p>
+<p><img alt="image.png" src="../image%205.png" /></p>
+<p><img alt="image.png" src="../image%206.png" /></p>
+<p><img alt="image.png" src="../image%207.png" /></p>
+<p><img alt="image.png" src="../image%208.png" /></p>
+<p><img alt="image.png" src="../image%209.png" /></p>
+<p><img alt="image.png" src="../image%2010.png" /></p>
+<p><img alt="image.png" src="../image%2011.png" /></p>
+<p><img alt="image.png" src="../image%2012.png" /></p>
+<p>Finalment veiem com amb la comanda <code>slapcat</code> sen’s mostra el nou domini i la seva organització.</p>
+<h1 id="2-unir-equips-al-domini">2. Unir equips al domini</h1>
+<p>Crearem una unitat organitzativa, que es un contenidor dins del directori per guardar objectes com: usuaris i grups.</p>
+<p><img alt="image.png" src="../image%2013.png" /></p>
+<p>Creem un grup anomenat alumnes per a poder posar els usuaris creats i posem els usuaris que volem afegir a la part inferior.</p>
+<p><img alt="image.png" src="../image%2014.png" /></p>
+<p>Ara configurem el fitxer de l’usuari per a poder utilitzar-lo en la maquina client.</p>
+<p><img alt="image.png" src="../image%2015.png" /></p>
+<p><img alt="image.png" src="../image%2016.png" /></p>
+<p><code>-c</code> fa que el <code>ldapadd</code> continuï executant-se encara que es produeixin errors.</p>
+<p><code>-x</code> utilitza autenticació simple en lloc de SASL (Simple Authentication and Security Layer).</p>
+<p><code>-D</code> indica el Distinguished Name (DN) de l'usuari que realitza l'operació, en aquest cas, l'usuari administrador.</p>
+<p><code>-W</code> demana la contrasenya de l'usuari especificat amb <code>-D</code>. Això és més segur que incloure la contrasenya directament a la comanda com passaria amb la <code>-w</code>.</p>
+<p>Executem tots els canvis i verifiquem que s’han enregistrat correctament</p>
+<p><img alt="image.png" src="../image%2017.png" /></p>
+<p><img alt="image.png" src="../image%2018.png" /></p>
+<hr />
+<h2 id="un-cop-a-la-maquina-client">Un cop a la maquina client</h2>
+<p>Instal·lem el “nscd”: un dimoni (programa en segon pla) que s’encarrega d’emmagatzemar la memòria cau(cache). Instal·lem també una llibreria que ens permetrà fer la connexió al domini “ldap” des del client amb <code>apt install libnss-ldap</code>.</p>
+<p><img alt="image.png" src="../image%2019.png" /></p>
+<p>Fiquem la “ip” del server (amb el format que es mostra a l’imatge: <code>ldap://server_ip</code>) per conectar-nos.</p>
+<p><img alt="image.png" src="../image%2020.png" /></p>
+<p>Podem anar seleccionant també les opcions per defecte, que ja en van bé.</p>
+<p><img alt="image.png" src="../image%2021.png" /></p>
+<p><img alt="image.png" src="../image%2022.png" /></p>
+<p><img alt="image.png" src="../image%2023.png" /></p>
+<p>Aquí haurem d’indicar el domini personalitzat que hem escollit abans i després introduïr la contrasenya.</p>
+<p><img alt="image.png" src="../image%2024.png" /></p>
+<p><img alt="image.png" src="../image%2025.png" /></p>
+<p>Instal·lem <code>apt install libpam-ldap</code> .</p>
+<p><img alt="image.png" src="../image%2026.png" /></p>
+<p>Si el client no es pot validar al domini, apart de comprovar els arxius de configuració que es veuran a continuació tambe farem sempre la següent comanda: <code>dpkg-reconfigure ldap-auth-config</code>.</p>
+<p>I un cop més podem usar les opcions per defecte.</p>
+<p><img alt="image.png" src="../image%2027.png" /></p>
+<p><img alt="image.png" src="../image%2028.png" /></p>
+<p><img alt="image.png" src="../image%2029.png" /></p>
+<p>Modifiquem la configuració de Name Service Switch (NSS) per incloure <code>ldap</code> abans d'altres mètodes de resolució (<code>compat</code>, <code>files</code>, <code>systemd</code>, <code>sss</code>).</p>
+<p>Ara l'autenticació i la gestió d'usuaris es basarà primer en LDAP abans de consultar altres mecanismes locals.</p>
+<p>Això permet que usuaris gestionats per LDAP puguin autenticar-se sense necessitat d'estar registrats localment a la màquina.</p>
+<p><img alt="image.png" src="../image%2030.png" /></p>
+<p>S'han afegit mòduls PAM per a <code>pam_ldap.so</code> i <code>pam_unix.so</code>, prioritzant l'autenticació mitjançant LDAP.</p>
+<p>Es poden establir regles específiques com <code>use_authtok</code> i <code>try_first_pass</code>, que permeten reutilitzar credencials introduïdes prèviament per a evitar haver d'introduir-les diverses vegades.</p>
+<p><img alt="image.png" src="../image%2031.png" /></p>
+<p>S'ha afegit <code>pam_mkhomedir.so skel=/etc/skel umask=077</code>, que assegura que es creï un directori d'inici (<code>home</code>) per als usuaris que s'autentiquen mitjançant LDAP.</p>
+<p>Si un usuari LDAP inicia sessió per primer cop, el sistema crearà automàticament el seu directori <code>/home/usuari</code> amb permisos restringits (<code>umask=077</code>), evitant que altres usuaris puguin accedir als seus fitxers.</p>
+<p><img alt="image.png" src="../image%2032.png" /></p>
+<p>Facilita que usuaris LDAP (o altres comptes no definits localment) puguin iniciar sessió introduint el seu nom d'usuari i contrasenya.</p>
+<p><img alt="image.png" src="../image%2033.png" /></p>
+<p>Procedim a conectar-nos amb l’usuari que hem creat per verificar el funcionament:</p>
+<p><img alt="image.png" src="../image%2034.png" /></p>
+<p><img alt="image.png" src="../image%2035.png" /></p>
+<hr />
+<h1 id="3-gestio-del-domini-ldap">3. Gestió del domini LDAP</h1>
+<p>Un cop tenim un domini creat hem de ser capaços de gestinar-lo, ja sigui afegint, eliminant o modificant paràmetres del mateix.</p>
+<p>Per fer-ho hem eliminat l’antiga base i n’hem creat una de nova amb <code>dpkg-reconfigure slapd</code></p>
+<p><img alt="image.png" src="../image%2036.png" /></p>
+<p><strong><em>Un breu video per mostra el procés de configuració pas per pas:</em></strong></p>
+<p><a href="../dpkg-reconfigure.mp4">dpkg-reconfigure.mp4</a></p>
+<hr />
+<h2 id="ldapsearch"><code>ldapsearch</code></h2>
+<p>Una de les coses que podem fer per gestionar la nostra base de dades és filtrar per “uid”, una de les entrades que, en principi, ha de ser única per a cada entrada. Aixó ens mostra totes les dades que hi ha assignades a l’entrada en qüestió.</p>
+<p><img alt="image.png" src="../image%2037.png" /></p>
+<p>També podem filtrar per coses més concretes. Podem, per exemple, filtrar per tots aquells usuaris que disposen d’un objecte “mail” que utilitzi el domini “example.com”. Si hi hagués objectes “mail” amb altres dominis no es mostrarien després de fer aquesta comanda.</p>
+<p><img alt="image.png" src="../image%2038.png" /></p>
+<p>A més, podem fer una cerca que ens mostre només els objectes que ens interessen:</p>
+<p><img alt="image.png" src="../image%2039.png" /></p>
+<p>En aquesta, hem afegit al final de la comanda: “dn” “cn” i “mail” com als únics camps que volem rebre de la cerca.</p>
+<h2 id="afegir-dades">Afegir dades</h2>
+<h3 id="primera-opcio-per-afegir-dades">Primera opció per afegir dades</h3>
+<p><img alt="image.png" src="../image%2040.png" /></p>
+<p>Afegim la base de dades al domini, que afegeix dos “ou” o unitats organitzatives: una per als grup i una altra per als usuaris.</p>
+<p>També afegeix múltiples entrades per a cada grup.</p>
+<hr />
+<h3 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades</h3>
+<p>En aquest cas hem afegit manualment una ou a la base de dades, que es mostra juntament amb les altres dues anteriors.</p>
+<p><img alt="image.png" src="../image%2041.png" /></p>
+<p><img alt="image.png" src="../image%2042.png" /></p>
+<p><img alt="image.png" src="../image%2043.png" /></p>
+<p>Com a resultat, obtenim una nova “ou”.</p>
+<hr />
+<p>Ara, imaginem que les dades que hem afegit amb la segona opció han estat incorrectes i volem modificar-les.</p>
+<p><img alt="image.png" src="../image%2044.png" /></p>
+<p>Podem, per exemple, cambiar “l’ou” de manera que prova ara forma part de la “ou” “groups”.</p>
+<p><img alt="image.png" src="../image%2045.png" /></p>
+<hr />
+<p>Si per exemple volem cambiar el nom de la ou “prova” a “provahola” ho hem de fer de la següent forma:</p>
+<p><img alt="image.png" src="../image%2046.png" /></p>
+<p><img alt="image.png" src="../image%2047.png" /></p>
+<p><img alt="image.png" src="../image%2048.png" /></p>
+<p>Aquests són processos que veurem més avant a l’apartat <strong>Per Modificar Dades</strong></p>
+<hr />
+<h2 id="esborrar-dades">Esborrar dades</h2>
+<p>Per esborra dades utilitzarem el següent procés:</p>
+<p><img alt="image.png" src="../image%2049.png" /></p>
+<p><img alt="image.png" src="../image%2050.png" /></p>
+<p>Després d’eliminar ja no tenim l’entrada:</p>
+<p><img alt="image.png" src="../image%2051.png" /></p>
+<hr />
+<h2 id="per-modificar-dades">Per modificar dades</h2>
+<p>Modificar les dades és un procés des del que podem afegir eliminar i modificar totes les dades sense necessitat de utilitzar una comanda individual per a cada objecte.</p>
+<p>Podem fer un fitxer .ldif per a cada objecte o dada que volem modificar o podem fer-ne un que les inclogue totes.</p>
+<p>Primer hem intentat esborrar l’atribut “sn”.</p>
+<p><img alt="image.png" src="../image%2052.png" /></p>
+<p>Aquest ha donat error ja que el “sn” és un atribut obligatori i no podem deixar a “abergin” sense “sn”</p>
+<p>Així que farem altres proves</p>
+<p><img alt="image.png" src="../461c00f7-d1ae-4a0a-9d88-e6c85125959f.png" /></p>
+<p>El contingut del fitxer</p>
+<p><img alt="image.png" src="../image%2053.png" /></p>
+<p><img alt="image.png" src="../image%2054.png" /></p>
+<p>Com a resultat, “abergin” té ara un hotmail i el seu “homeDirectory” ha cambiat de “/home/abergin” a “/home/abergin0”</p>
+<p>Si volem eliminar el seu mail:</p>
+<p><img alt="image.png" src="../image%2055.png" /></p>
+<p><img alt="image.png" src="../image%2056.png" /></p>
+<p>Ara abergin ja no té mail.</p>
+<h1 id="entorn-grafic-apache-studio">Entorn Gràfic - Apache Studio</h1>
+<p>Per utilitzar Apache Studio per crear i modificar usuaris priemer hem d’instalar-lo. Podem fer-ho amb la següent comanda:</p>
+<p><code>wget [https://downloads.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz](https://downloads.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz)</code></p>
+<p><code>tar -xvzf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz</code></p>
+<p><img alt="image.png" src="../image%2057.png" /></p>
+<p>Creem un enllaç simbòlic para accedir fàcilment</p>
+<p><img alt="image.png" src="../image%2058.png" /></p>
+<p>Hem d’instal·lar també el requisits per executar apache studio, ja que la MV no els té.</p>
+<p><img alt="image.png" src="../image%2059.png" /></p>
+<p>Obrim l’aplicació </p>
+<p><img alt="image.png" src="../image%2060.png" /></p>
+<p><img alt="image.png" src="../image%2061.png" /></p>
+<p>El següent pas és crear una nova connexió amb el servidor, per això ens dirigirem a File→ <strong><em>*New </em>*→</strong> LDAP <strong>Connection</strong>.</p>
+<p><img alt="image.png" src="../image%2062.png" /></p>
+<p><img alt="image.png" src="../image%2063.png" /></p>
+<p>Deixem “Simple Authentication” i emplenem les dades necessàries amb el nostre domini i la seva contrasenya.</p>
+<p><img alt="image.png" src="../image%2064.png" /></p>
+<p>Ara ja tenim la connexió, però hem d’afegir més entrades (Usuaris, Persones, etc) cadascuna de les quals pot tenir els seus propis atributs.</p>
+<p><img alt="image.png" src="../image%2065.png" /></p>
+<p>A continuació podem fer dues coses:</p>
+<h2 id="afegir-una-nova-entrada-alu2">Afegir una nova entrada “alu2”</h2>
+<p><img alt="Introduïm el nostre domini, que és a través del que ens conectarem a l’usuari" src="../image%2066.png" /></p>
+<p>Introduïm el nostre domini, que és a través del que ens conectarem a l’usuari</p>
+<p>Ens demana afegir les classes d’objecte, introduïm les que es poden veure a continuació a l’apartat dret (concretament a “Selected object classes”).</p>
+<p><img alt="image.png" src="../image%2067.png" /></p>
+<p>Com a parent tornem a introduïr el nostre domini i, a l’opció “RDN”, escollim “cn” = “alu2”. Això és l’identificador propi de l’usuari que estem creant i el que realment utilitzarem per conectar-nos a través d’ldap</p>
+<p><img alt="image.png" src="../image%2068.png" /></p>
+<p>En cas que sigui necessari, afegim més atributs per al nou usuari (o entrada) com: mail, HomeDirectory, etc.</p>
+<p><img alt="image.png" src="../image%2069.png" /></p>
+<p>Hauríem d’afegir més atributs, per anar bé almenys els mateixos que té “alu1”. Un cop creat l’usuari ja hauríem de ser capaços de conectar-nos a traves d’ldap al terminal</p>
+<p><img alt="image.png" src="../image%2070.png" /></p>
+<hr />
+<h2 id="copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries">Copiar l’entrada ja existent de “alu1” i cambiar les dades necessàries</h2>
+<p>En aquest cas només hem de canviar els atributs essencials d’”alu1” a l’hora de copiar l’entrada. </p>
+<p>Primer la copiem.</p>
+<p><img alt="image.png" src="../image%2071.png" /></p>
+<p>Despŕes fariem “Paste” i ens apareixeria aquesta opció:</p>
+<p><img alt="image.png" src="../image%2072.png" /></p>
+<p>Seleccionem “Rename entry and continue” i canviem el uid, jo he ficat “alu2”.</p>
+<p>Així ha quedat “alu2” després de copiar-la i fer els canvis a “sn, cn, homeDirectory, uid, uidNumber”:</p>
+<p><img alt="image.png" src="../image%2073.png" /></p>
+<p>Un cop afegit el’usuari ja podem conectar-nos amb “alu2”.</p>
+<p><img alt="image.png" src="../image%2074.png" /></p>
+<hr />
+<h1 id="samba">SAMBA</h1>
+<p>Amb un servidor Samba, es necessita una autenticació d’usuari i pot no només compartir fitxers i carpetes si bé també accés a impresores.</p>
+<p>Afortunadament Samba pot treballar de la mà d’LDAP, amb qui validarem els usuaris que registrem.</p>
+<h2 id="installacio-del-servidor">Instal·lació del servidor</h2>
+<p>Primer instal·lem samba amb <code>apt install samba</code> .</p>
+<p><img alt="image.png" src="../image%2075.png" /></p>
+<p>Després ens dirigirem al fitxer següent, que modificarem amb els següents parametres (Ho afegirem tot al final del fitxer):</p>
+<p><img alt="image.png" src="../image%2076.png" /></p>
+<p><em>Comanda per modificar el fitxer:</em>  <code>nano /etc/samba/smb.conf</code> +</p>
+<p><img alt="image.png" src="../image%2077.png" /></p>
+<p><em>Parametres a introduïr.</em></p>
+<p>[perfils]
+   path = /perfils
+   guest ok = yes
+   directory mask = 0755
+   create mask = 0644
+   browseable = yes
+   read list = @dam
+   write list = raul
+   invalid users = enric</p>
+<p>Per aplicar els canvis hem de reiniciar el servei samb amb les comandes <code>systemctl restart smbd nmbd</code> i <code>systemctl status smbd nmbd</code> per comprobar el reinici i veure si s’han reiniciat sense errors.</p>
+<p><img alt="image.png" src="../image%2078.png" /></p>
+<h2 id="crear-usuaris-a-samba">Crear usuaris a Samba</h2>
+<p>Ara, crearem els usuaris que hem definit als paràmetres anteriors</p>
+<p><code>useradd -M -s /sbin/nologin raul</code></p>
+<p><code>useradd -M -s /sbin/nologin enric</code></p>
+<p><code>useradd -M -s /sbin/nologin walid</code></p>
+<p><img alt="image.png" src="../image%2079.png" /></p>
+<p>També crearem un grup “dam” amb <code>addgroup dam</code> i afegirem als tres usuaris al grup  amb <code>adduser &lt;usuari&gt; dam</code> .</p>
+<p><code>adduser raul dam</code></p>
+<p><code>adduser enric dam</code></p>
+<p><code>adduser walid dam</code></p>
+<p><img alt="image.png" src="../image%2080.png" /></p>
+<h2 id="afegir-usuaris-a-samba">Afegir usuaris a Samba</h2>
+<p>Per últim queda fegir els usuaris de la màquina a Samba a traves de la comanda <code>smbpasswd -a &lt;usuari&gt;</code> i a cadascún li ficarem la seva contrasenya.</p>
+<p><code>smbpasswd -a raul</code></p>
+<p><code>smbpasswd -a enric</code></p>
+<p><code>smbpasswd -a walid</code></p>
+<p><img alt="image.png" src="../image%2081.png" /></p>
+<h2 id="client-samba">Client Samba</h2>
+<p>Ara instal·larem el client amb <code>apt install smbclient</code></p>
+<p><img alt="image.png" src="../image%2082.png" /></p>
+<p>Obrim l’explorador de fitxers, a l’opció “Otras ubicaciones”. Buscarem la carpeta<code>/perfils</code> compartida amb l’adreça <code>smb://&lt;ipservidor&gt;/perfils.</code></p>
+<hr />
+<h1 id="compartir-recursos">COMPARTIR RECURSOS</h1>
+<h2 id="servidor-nfs">Servidor NFS</h2>
+<p>Tants servidor samba com NFS serveixen per compratir recursos. Permet fer auth en usuari pero amb kerberos, però és tant dificil que es millor utilitzar samba.</p>
+<p>Primer instalem els paquets necessaris amb <code>apt install nfs-kernel-server</code> per utilitzar la funció i preparem la carpeta on es concectaran tant el nostre windows com l’ubuntu.</p>
+<p><img alt="image.png" src="../image%2083.png" /></p>
+<p>Afegim una linia per indicar la carpeta compartida al arxiu <code>/etc/exports</code>.</p>
+<p><img alt="image.png" src="../image%2084.png" /></p>
+<p>Reiniciem el servei per aplicar els canvis.</p>
+<p><img alt="image.png" src="../image%2085.png" /></p>
+<h2 id="configuracions-dels-clients">CONFIGURACIONS DELS CLIENTS</h2>
+<p>Ara instal·lem el paquet necessari per muntar la carpeta compartida al nostre ubuntu, contràriament no podrem afegir res ni fer servir la carpeta compartida.</p>
+<p><img alt="image.png" src="../image%2086.png" /></p>
+<p>Ara, hem de crear una carpeta que apuntara a la carpeta que es comparteix entre els sistemes i muntarla a la ip del servidor amb la seva ruta.</p>
+<p>Des de la màquina Windows hem d’accedir a les característiques del sistema per activar l’opció “Servicios para NFS”.</p>
+<p><em>Nota: Estem utilitzant una MV amb Windows 11 Pro. Revisar instruccions segons l’idioma del sistema, ja que poden no ser 100% precises.</em></p>
+<p><img alt="image.png" src="../4e0c735c-e978-49f8-94d4-b1bf7fd616ba.png" /></p>
+<p><img alt="image.png" src="../image%2087.png" /></p>
+<p><img alt="image.png" src="../image%2088.png" /></p>
+<p>Windows instal·larà automàticament els recursos necessaris.</p>
+<p><img alt="image.png" src="../image%2089.png" /></p>
+<p>Finalment per accedir a la carpeta compartida, només hem d’escriure: <code>\\serverIp\DirectoryName</code> , en el meu cas és <code>\\10.0.2.5\compartida</code> .</p>
+<p>Aqui veurem tots els fitxer que creem a l’ubuntu o al windows, en tots dos sistemes.</p>
+<p><img alt="image.png" src="../image%2090.png" /></p>
+<p>Finalment podem veure com el fitxer windows.txt, que hem creat al sistema Windows, apareix a la carpeta desde el sistema ubuntu.</p>
+<p><img alt="image.png" src="../image%2091.png" /></p>
+<h2 id="nfs-3-perfils-mobils">NFS 3. PERFILS MÒBILS</h2>
+<h3 id="part-server">PART SERVER</h3>
+<p>Amb NFS necessitem instalar el següetn paquet.</p>
+<p><img alt="image.png" src="../image%2092.png" /></p>
+<p>Creem la carpeta on es compartiràn els fitxers.</p>
+<p><img alt="image.png" src="../image%2093.png" /></p>
+<p>Afegim la última linia</p>
+<p><img alt="image.png" src="../image%2094.png" /></p>
+<p>I reiniciem per aplicar els canvis</p>
+<p><img alt="image.png" src="../image%2095.png" /></p>
+<p>Seguidament haurem de crear un grup i un usuari, ho farem amb els següent fitxers:</p>
+<p><img alt="image.png" src="../image%2096.png" /></p>
+<p><img alt="image.png" src="../image%2097.png" /></p>
+<p>Un cop emplenats, els afegim a LDAP</p>
+<p><img alt="image.png" src="../image%2098.png" /></p>
+<h3 id="part-client">PART CLIENT</h3>
+<p>Ja només ens queda configurar els usuaris a la màquina client.</p>
+<p>Instal·lem paquets necessaris.</p>
+<p><img alt="image.png" src="../image%2099.png" /></p>
+<p>creem una carpeta que servira també per compartir els fitxers</p>
+<p><img alt="image.png" src="../image%20100.png" /></p>
+<p>i al fitxer <code>/etc/fstab</code> afegim l’ultima linia, que és la ip del servidor seguida d’alguns paràmetres necessaris pel correcte funcionament.</p>
+<p><img alt="image.png" src="../image%20101.png" /></p>
+<p>Finalment si reiniciem el client i intentem llistar-nos amb l’usuari i la contrasenya que hem especificat, podrem utilitzar l’usuari alu54 (en aquest cas) a qualsevol màquina en qui estigui conectat el sistema.</p>
+<p><img alt="image.png" src="../image%20102.png" /></p>
+<p><img alt="image.png" src="../image%20103.png" /></p>
+<p><img alt="image.png" src="../image%20104.png" /></p>
+<p><img alt="image.png" src="../image%20105.png" /></p>
+<p><img alt="image.png" src="../image%20106.png" /></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-link">
+        Sprint2
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../MainPage/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../MainPage/" class="btn btn-xs btn-link">
+        Arnau Meseguer Sancho
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
