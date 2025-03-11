@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Sprint 3 - My Docs</title>
+    <title>Sprint3 - Projecte Arnau</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -32,9 +32,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Sprint 3", url: "#_top", children: [
-          ]},
-          {title: "INSTAL\u00b7LACI\u00d3 DEL DOMINI LDAP", url: "#installacio-del-domini-ldap", children: [
+          {title: "INSTAL\u00b7LACI\u00d3 DEL DOMINI LDAP", url: "#_top", children: [
           ]},
           {title: "2. Unir equips al domini", url: "#2-unir-equips-al-domini", children: [
               {title: "Un cop a la maquina client", url: "#un-cop-a-la-maquina-client" },
@@ -85,21 +83,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav pull-right">
-      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-link">
-        Sprint2
-      </a>
-    </div>
-    
     <div class="wm-article-nav">
-      <a href="../MainPage/" class="btn btn-xs btn-default pull-left">
+      <a href="../Sprint2/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../MainPage/" class="btn btn-xs btn-link">
-        Arnau Meseguer Sancho
+        Previous</a><a href="../Sprint2/" class="btn btn-xs btn-link">
+        Sprint2
       </a>
     </div>
     
@@ -107,8 +95,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="sprint-3">Sprint 3</h1>
-<h1 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP</h1>
+    <h1 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP<a class="headerlink" href="#installacio-del-domini-ldap" title="Permanent link">&para;</a></h1>
 <p>Primer canviem el hostname i afegim el nom del domini que estarem utilitzant durant la manipulació del ldap.</p>
 <p><img alt="image.png" src="../image.png" /></p>
 <p><img alt="image.png" src="../image%201.png" /></p>
@@ -132,7 +119,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2011.png" /></p>
 <p><img alt="image.png" src="../image%2012.png" /></p>
 <p>Finalment veiem com amb la comanda <code>slapcat</code> sen’s mostra el nou domini i la seva organització.</p>
-<h1 id="2-unir-equips-al-domini">2. Unir equips al domini</h1>
+<h1 id="2-unir-equips-al-domini">2. Unir equips al domini<a class="headerlink" href="#2-unir-equips-al-domini" title="Permanent link">&para;</a></h1>
 <p>Crearem una unitat organitzativa, que es un contenidor dins del directori per guardar objectes com: usuaris i grups.</p>
 <p><img alt="image.png" src="../image%2013.png" /></p>
 <p>Creem un grup anomenat alumnes per a poder posar els usuaris creats i posem els usuaris que volem afegir a la part inferior.</p>
@@ -148,7 +135,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2017.png" /></p>
 <p><img alt="image.png" src="../image%2018.png" /></p>
 <hr />
-<h2 id="un-cop-a-la-maquina-client">Un cop a la maquina client</h2>
+<h2 id="un-cop-a-la-maquina-client">Un cop a la maquina client<a class="headerlink" href="#un-cop-a-la-maquina-client" title="Permanent link">&para;</a></h2>
 <p>Instal·lem el “nscd”: un dimoni (programa en segon pla) que s’encarrega d’emmagatzemar la memòria cau(cache). Instal·lem també una llibreria que ens permetrà fer la connexió al domini “ldap” des del client amb <code>apt install libnss-ldap</code>.</p>
 <p><img alt="image.png" src="../image%2019.png" /></p>
 <p>Fiquem la “ip” del server (amb el format que es mostra a l’imatge: <code>ldap://server_ip</code>) per conectar-nos.</p>
@@ -183,14 +170,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2034.png" /></p>
 <p><img alt="image.png" src="../image%2035.png" /></p>
 <hr />
-<h1 id="3-gestio-del-domini-ldap">3. Gestió del domini LDAP</h1>
+<h1 id="3-gestio-del-domini-ldap">3. Gestió del domini LDAP<a class="headerlink" href="#3-gestio-del-domini-ldap" title="Permanent link">&para;</a></h1>
 <p>Un cop tenim un domini creat hem de ser capaços de gestinar-lo, ja sigui afegint, eliminant o modificant paràmetres del mateix.</p>
 <p>Per fer-ho hem eliminat l’antiga base i n’hem creat una de nova amb <code>dpkg-reconfigure slapd</code></p>
 <p><img alt="image.png" src="../image%2036.png" /></p>
 <p><strong><em>Un breu video per mostra el procés de configuració pas per pas:</em></strong></p>
 <p><a href="../dpkg-reconfigure.mp4">dpkg-reconfigure.mp4</a></p>
 <hr />
-<h2 id="ldapsearch"><code>ldapsearch</code></h2>
+<h2 id="ldapsearch"><code>ldapsearch</code><a class="headerlink" href="#ldapsearch" title="Permanent link">&para;</a></h2>
 <p>Una de les coses que podem fer per gestionar la nostra base de dades és filtrar per “uid”, una de les entrades que, en principi, ha de ser única per a cada entrada. Aixó ens mostra totes les dades que hi ha assignades a l’entrada en qüestió.</p>
 <p><img alt="image.png" src="../image%2037.png" /></p>
 <p>També podem filtrar per coses més concretes. Podem, per exemple, filtrar per tots aquells usuaris que disposen d’un objecte “mail” que utilitzi el domini “example.com”. Si hi hagués objectes “mail” amb altres dominis no es mostrarien després de fer aquesta comanda.</p>
@@ -198,13 +185,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>A més, podem fer una cerca que ens mostre només els objectes que ens interessen:</p>
 <p><img alt="image.png" src="../image%2039.png" /></p>
 <p>En aquesta, hem afegit al final de la comanda: “dn” “cn” i “mail” com als únics camps que volem rebre de la cerca.</p>
-<h2 id="afegir-dades">Afegir dades</h2>
-<h3 id="primera-opcio-per-afegir-dades">Primera opció per afegir dades</h3>
+<h2 id="afegir-dades">Afegir dades<a class="headerlink" href="#afegir-dades" title="Permanent link">&para;</a></h2>
+<h3 id="primera-opcio-per-afegir-dades">Primera opció per afegir dades<a class="headerlink" href="#primera-opcio-per-afegir-dades" title="Permanent link">&para;</a></h3>
 <p><img alt="image.png" src="../image%2040.png" /></p>
 <p>Afegim la base de dades al domini, que afegeix dos “ou” o unitats organitzatives: una per als grup i una altra per als usuaris.</p>
 <p>També afegeix múltiples entrades per a cada grup.</p>
 <hr />
-<h3 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades</h3>
+<h3 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades<a class="headerlink" href="#segona-opcio-per-afegir-dades" title="Permanent link">&para;</a></h3>
 <p>En aquest cas hem afegit manualment una ou a la base de dades, que es mostra juntament amb les altres dues anteriors.</p>
 <p><img alt="image.png" src="../image%2041.png" /></p>
 <p><img alt="image.png" src="../image%2042.png" /></p>
@@ -222,14 +209,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2048.png" /></p>
 <p>Aquests són processos que veurem més avant a l’apartat <strong>Per Modificar Dades</strong></p>
 <hr />
-<h2 id="esborrar-dades">Esborrar dades</h2>
+<h2 id="esborrar-dades">Esborrar dades<a class="headerlink" href="#esborrar-dades" title="Permanent link">&para;</a></h2>
 <p>Per esborra dades utilitzarem el següent procés:</p>
 <p><img alt="image.png" src="../image%2049.png" /></p>
 <p><img alt="image.png" src="../image%2050.png" /></p>
 <p>Després d’eliminar ja no tenim l’entrada:</p>
 <p><img alt="image.png" src="../image%2051.png" /></p>
 <hr />
-<h2 id="per-modificar-dades">Per modificar dades</h2>
+<h2 id="per-modificar-dades">Per modificar dades<a class="headerlink" href="#per-modificar-dades" title="Permanent link">&para;</a></h2>
 <p>Modificar les dades és un procés des del que podem afegir eliminar i modificar totes les dades sense necessitat de utilitzar una comanda individual per a cada objecte.</p>
 <p>Podem fer un fitxer .ldif per a cada objecte o dada que volem modificar o podem fer-ne un que les inclogue totes.</p>
 <p>Primer hem intentat esborrar l’atribut “sn”.</p>
@@ -245,7 +232,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2055.png" /></p>
 <p><img alt="image.png" src="../image%2056.png" /></p>
 <p>Ara abergin ja no té mail.</p>
-<h1 id="entorn-grafic-apache-studio">Entorn Gràfic - Apache Studio</h1>
+<h1 id="entorn-grafic-apache-studio">Entorn Gràfic - Apache Studio<a class="headerlink" href="#entorn-grafic-apache-studio" title="Permanent link">&para;</a></h1>
 <p>Per utilitzar Apache Studio per crear i modificar usuaris priemer hem d’instalar-lo. Podem fer-ho amb la següent comanda:</p>
 <p><code>wget [https://downloads.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz](https://downloads.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz)</code></p>
 <p><code>tar -xvzf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz</code></p>
@@ -265,7 +252,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Ara ja tenim la connexió, però hem d’afegir més entrades (Usuaris, Persones, etc) cadascuna de les quals pot tenir els seus propis atributs.</p>
 <p><img alt="image.png" src="../image%2065.png" /></p>
 <p>A continuació podem fer dues coses:</p>
-<h2 id="afegir-una-nova-entrada-alu2">Afegir una nova entrada “alu2”</h2>
+<h2 id="afegir-una-nova-entrada-alu2">Afegir una nova entrada “alu2”<a class="headerlink" href="#afegir-una-nova-entrada-alu2" title="Permanent link">&para;</a></h2>
 <p><img alt="Introduïm el nostre domini, que és a través del que ens conectarem a l’usuari" src="../image%2066.png" /></p>
 <p>Introduïm el nostre domini, que és a través del que ens conectarem a l’usuari</p>
 <p>Ens demana afegir les classes d’objecte, introduïm les que es poden veure a continuació a l’apartat dret (concretament a “Selected object classes”).</p>
@@ -277,7 +264,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Hauríem d’afegir més atributs, per anar bé almenys els mateixos que té “alu1”. Un cop creat l’usuari ja hauríem de ser capaços de conectar-nos a traves d’ldap al terminal</p>
 <p><img alt="image.png" src="../image%2070.png" /></p>
 <hr />
-<h2 id="copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries">Copiar l’entrada ja existent de “alu1” i cambiar les dades necessàries</h2>
+<h2 id="copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries">Copiar l’entrada ja existent de “alu1” i cambiar les dades necessàries<a class="headerlink" href="#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" title="Permanent link">&para;</a></h2>
 <p>En aquest cas només hem de canviar els atributs essencials d’”alu1” a l’hora de copiar l’entrada. </p>
 <p>Primer la copiem.</p>
 <p><img alt="image.png" src="../image%2071.png" /></p>
@@ -289,10 +276,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Un cop afegit el’usuari ja podem conectar-nos amb “alu2”.</p>
 <p><img alt="image.png" src="../image%2074.png" /></p>
 <hr />
-<h1 id="samba">SAMBA</h1>
+<h1 id="samba">SAMBA<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h1>
 <p>Amb un servidor Samba, es necessita una autenticació d’usuari i pot no només compartir fitxers i carpetes si bé també accés a impresores.</p>
 <p>Afortunadament Samba pot treballar de la mà d’LDAP, amb qui validarem els usuaris que registrem.</p>
-<h2 id="installacio-del-servidor">Instal·lació del servidor</h2>
+<h2 id="installacio-del-servidor">Instal·lació del servidor<a class="headerlink" href="#installacio-del-servidor" title="Permanent link">&para;</a></h2>
 <p>Primer instal·lem samba amb <code>apt install samba</code> .</p>
 <p><img alt="image.png" src="../image%2075.png" /></p>
 <p>Després ens dirigirem al fitxer següent, que modificarem amb els següents parametres (Ho afegirem tot al final del fitxer):</p>
@@ -311,7 +298,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
    invalid users = enric</p>
 <p>Per aplicar els canvis hem de reiniciar el servei samb amb les comandes <code>systemctl restart smbd nmbd</code> i <code>systemctl status smbd nmbd</code> per comprobar el reinici i veure si s’han reiniciat sense errors.</p>
 <p><img alt="image.png" src="../image%2078.png" /></p>
-<h2 id="crear-usuaris-a-samba">Crear usuaris a Samba</h2>
+<h2 id="crear-usuaris-a-samba">Crear usuaris a Samba<a class="headerlink" href="#crear-usuaris-a-samba" title="Permanent link">&para;</a></h2>
 <p>Ara, crearem els usuaris que hem definit als paràmetres anteriors</p>
 <p><code>useradd -M -s /sbin/nologin raul</code></p>
 <p><code>useradd -M -s /sbin/nologin enric</code></p>
@@ -322,19 +309,19 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><code>adduser enric dam</code></p>
 <p><code>adduser walid dam</code></p>
 <p><img alt="image.png" src="../image%2080.png" /></p>
-<h2 id="afegir-usuaris-a-samba">Afegir usuaris a Samba</h2>
+<h2 id="afegir-usuaris-a-samba">Afegir usuaris a Samba<a class="headerlink" href="#afegir-usuaris-a-samba" title="Permanent link">&para;</a></h2>
 <p>Per últim queda fegir els usuaris de la màquina a Samba a traves de la comanda <code>smbpasswd -a &lt;usuari&gt;</code> i a cadascún li ficarem la seva contrasenya.</p>
 <p><code>smbpasswd -a raul</code></p>
 <p><code>smbpasswd -a enric</code></p>
 <p><code>smbpasswd -a walid</code></p>
 <p><img alt="image.png" src="../image%2081.png" /></p>
-<h2 id="client-samba">Client Samba</h2>
+<h2 id="client-samba">Client Samba<a class="headerlink" href="#client-samba" title="Permanent link">&para;</a></h2>
 <p>Ara instal·larem el client amb <code>apt install smbclient</code></p>
 <p><img alt="image.png" src="../image%2082.png" /></p>
 <p>Obrim l’explorador de fitxers, a l’opció “Otras ubicaciones”. Buscarem la carpeta<code>/perfils</code> compartida amb l’adreça <code>smb://&lt;ipservidor&gt;/perfils.</code></p>
 <hr />
-<h1 id="compartir-recursos">COMPARTIR RECURSOS</h1>
-<h2 id="servidor-nfs">Servidor NFS</h2>
+<h1 id="compartir-recursos">COMPARTIR RECURSOS<a class="headerlink" href="#compartir-recursos" title="Permanent link">&para;</a></h1>
+<h2 id="servidor-nfs">Servidor NFS<a class="headerlink" href="#servidor-nfs" title="Permanent link">&para;</a></h2>
 <p>Tants servidor samba com NFS serveixen per compratir recursos. Permet fer auth en usuari pero amb kerberos, però és tant dificil que es millor utilitzar samba.</p>
 <p>Primer instalem els paquets necessaris amb <code>apt install nfs-kernel-server</code> per utilitzar la funció i preparem la carpeta on es concectaran tant el nostre windows com l’ubuntu.</p>
 <p><img alt="image.png" src="../image%2083.png" /></p>
@@ -342,7 +329,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2084.png" /></p>
 <p>Reiniciem el servei per aplicar els canvis.</p>
 <p><img alt="image.png" src="../image%2085.png" /></p>
-<h2 id="configuracions-dels-clients">CONFIGURACIONS DELS CLIENTS</h2>
+<h2 id="configuracions-dels-clients">CONFIGURACIONS DELS CLIENTS<a class="headerlink" href="#configuracions-dels-clients" title="Permanent link">&para;</a></h2>
 <p>Ara instal·lem el paquet necessari per muntar la carpeta compartida al nostre ubuntu, contràriament no podrem afegir res ni fer servir la carpeta compartida.</p>
 <p><img alt="image.png" src="../image%2086.png" /></p>
 <p>Ara, hem de crear una carpeta que apuntara a la carpeta que es comparteix entre els sistemes i muntarla a la ip del servidor amb la seva ruta.</p>
@@ -358,8 +345,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2090.png" /></p>
 <p>Finalment podem veure com el fitxer windows.txt, que hem creat al sistema Windows, apareix a la carpeta desde el sistema ubuntu.</p>
 <p><img alt="image.png" src="../image%2091.png" /></p>
-<h2 id="nfs-3-perfils-mobils">NFS 3. PERFILS MÒBILS</h2>
-<h3 id="part-server">PART SERVER</h3>
+<h2 id="nfs-3-perfils-mobils">NFS 3. PERFILS MÒBILS<a class="headerlink" href="#nfs-3-perfils-mobils" title="Permanent link">&para;</a></h2>
+<h3 id="part-server">PART SERVER<a class="headerlink" href="#part-server" title="Permanent link">&para;</a></h3>
 <p>Amb NFS necessitem instalar el següetn paquet.</p>
 <p><img alt="image.png" src="../image%2092.png" /></p>
 <p>Creem la carpeta on es compartiràn els fitxers.</p>
@@ -373,7 +360,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2097.png" /></p>
 <p>Un cop emplenats, els afegim a LDAP</p>
 <p><img alt="image.png" src="../image%2098.png" /></p>
-<h3 id="part-client">PART CLIENT</h3>
+<h3 id="part-client">PART CLIENT<a class="headerlink" href="#part-client" title="Permanent link">&para;</a></h3>
 <p>Ja només ens queda configurar els usuaris a la màquina client.</p>
 <p>Instal·lem paquets necessaris.</p>
 <p><img alt="image.png" src="../image%2099.png" /></p>
@@ -398,21 +385,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav pull-right">
-      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../Sprint2%201431cc235019804a8767d862f759d878/" class="btn btn-xs btn-link">
-        Sprint2
-      </a>
-    </div>
-    
     <div class="wm-article-nav">
-      <a href="../MainPage/" class="btn btn-xs btn-default pull-left">
+      <a href="../Sprint2/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../MainPage/" class="btn btn-xs btn-link">
-        Arnau Meseguer Sancho
+        Previous</a><a href="../Sprint2/" class="btn btn-xs btn-link">
+        Sprint2
       </a>
     </div>
     

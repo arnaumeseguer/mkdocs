@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Sprint2 - My Docs</title>
+    <title>Sprint2 - Projecte Arnau</title>
     <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
@@ -32,9 +32,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Sprint2", url: "#_top", children: [
-          ]},
-          {title: "Gesti\u00f3 de la Informaci\u00f3 del Sistema i Administraci\u00f3", url: "#gestio-de-la-informacio-del-sistema-i-administracio", children: [
+          {title: "Gesti\u00f3 de la Informaci\u00f3 del Sistema i Administraci\u00f3", url: "#_top", children: [
               {title: "Qu\u00e8 \u00e9s un usuari?", url: "#que-es-un-usuari" },
               {title: "Qu\u00e8 son els grups i quina utilitat tenen.", url: "#que-son-els-grups-i-quina-utilitat-tenen" },
               {title: "Creaci\u00f3 D\u0027usuaris", url: "#creacio-dusuaris" },
@@ -80,11 +78,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
+    <div class="wm-article-nav pull-right">
+      <a href="../Sprint3/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Sprint3/" class="btn btn-xs btn-link">
+        Sprint3
+      </a>
+    </div>
+    
     <div class="wm-article-nav">
-      <a href="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/" class="btn btn-xs btn-default pull-left">
+      <a href=".." class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/" class="btn btn-xs btn-link">
-        Sprint 3
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Pàgina Principal
       </a>
     </div>
     
@@ -92,30 +100,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="sprint2">Sprint2</h1>
-<h1 id="gestio-de-la-informacio-del-sistema-i-administracio"><strong>Gestió de la Informació del Sistema i Administració</strong></h1>
-<h2 id="que-es-un-usuari">Què és un usuari?</h2>
+    <h1 id="gestio-de-la-informacio-del-sistema-i-administracio"><strong>Gestió de la Informació del Sistema i Administració</strong><a class="headerlink" href="#gestio-de-la-informacio-del-sistema-i-administracio" title="Permanent link">&para;</a></h1>
+<h2 id="que-es-un-usuari">Què és un usuari?<a class="headerlink" href="#que-es-un-usuari" title="Permanent link">&para;</a></h2>
 <p>Un usuari és una entitat lògica creada per gestionar els permisos, l'accés i les accions en un sistema operatiu o aplicació. Gràficament no pot treballar més d’un usuari, però amb terminals si.</p>
-<h2 id="que-son-els-grups-i-quina-utilitat-tenen">Què son els grups i quina utilitat tenen.</h2>
+<h2 id="que-son-els-grups-i-quina-utilitat-tenen">Què son els grups i quina utilitat tenen.<a class="headerlink" href="#que-son-els-grups-i-quina-utilitat-tenen" title="Permanent link">&para;</a></h2>
 <p>És una col·lecció d’usuaris que comparteixen permisos i/o privilegis. serveixen per donar/llevar permisos a un grup d’usuaris enlloc de fer-ho un per un.
 Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comandes utilitzant “sudo” a l’inici de les mateixes.
     ****</p>
-<h2 id="creacio-dusuaris"><strong>Creació D'usuaris</strong></h2>
+<h2 id="creacio-dusuaris"><strong>Creació D'usuaris</strong><a class="headerlink" href="#creacio-dusuaris" title="Permanent link">&para;</a></h2>
 <p>Hi ha diverses formes de crear usuaris a un sistema Ubuntu. Depenent del resultat que vulguem aconseguir, de vegades algunes formes seran més òptimes que altres.</p>
 <p>La més simple: interfície gràfica. Amb la següent comanda, podem instal·lar l’interfície gràfica que ens permet crear i esborrar usuaris sense la necessitat d’usar el terminal.</p>
 <p><img alt="Captura de pantalla de 2024-11-04 12-23-25.png" src="../Captura_de_pantalla_de_2024-11-04_12-23-25.png" /></p>
 <p><img alt="CrearUsuarisIterficie1.png" src="../CrearUsuarisIterficie1.png" /></p>
 <p><img alt="CrearUsuarisIterficie4.png" src="../CrearUsuarisIterficie4.png" /></p>
 <p>Finalment, i després d’haver escollit la contrasenya, podem incloure l’usuari en algun dels grups existents i seleccionar quins permisos tindrà. </p>
-<h2 id="useradd">“useradd <usuari>”</h2>
+<h2 id="useradd">“useradd <usuari>”<a class="headerlink" href="#useradd" title="Permanent link">&para;</a></h2>
 <p>Un forma de crear un usuari amb terminal és utilitzar la comanda “useradd” seguida del nom de l’usuari: </p>
 <p><img alt="Captura de pantalla de 2024-11-21 12-16-59.png" src="../Captura_de_pantalla_de_2024-11-21_12-16-59.png" /></p>
 <p>Aquesta comanda crea l’usuari “julia” al sistema, però aquest usuari no tindrà cap carpeta d’usuari fins que iniciem sessió per primera vegada amb l’interfície gràfica. A més la comanda no retorna cap confirmació de la creació de l’usuari.</p>
-<h2 id="adduser">“adduser <usuari>”</h2>
+<h2 id="adduser">“adduser <usuari>”<a class="headerlink" href="#adduser" title="Permanent link">&para;</a></h2>
 <p>Una altra forma de crear un usuari amb terminal és la comanda “adduser” seguida de l’usuari.</p>
 <p>Aquesta comanda proporciona més informació sobre el procés de crear un usuari i, en escència, és més còmoda.</p>
-<h1 id="sistemes-darxius-i-particions">Sistemes d’arxius i particions</h1>
-<h2 id="per-crear-i-modificar-noves-particions">Per crear i modificar noves particions</h2>
+<h1 id="sistemes-darxius-i-particions">Sistemes d’arxius i particions<a class="headerlink" href="#sistemes-darxius-i-particions" title="Permanent link">&para;</a></h1>
+<h2 id="per-crear-i-modificar-noves-particions">Per crear i modificar noves particions<a class="headerlink" href="#per-crear-i-modificar-noves-particions" title="Permanent link">&para;</a></h2>
 <p><img alt="imagen.png" src="../imagen.png" /></p>
 <p>Amb la comanda <em>fdisk -l</em> podem llistar tots els dispositius d’emmagatzematge de que disposem per tal de fer particions i altres modificacions.</p>
 <p><img alt="imagen.png" src="../1a8178ed-950c-4e12-b214-1651a1b09cca.png" /></p>
@@ -147,26 +154,26 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 </ul>
 <p><img alt="Després del reboot" src="../imagen%205.png" /></p>
 <p>Després del reboot</p>
-<h1 id="servidor-samba">Servidor samba</h1>
-<h1 id="copies-de-seguretat">Còpies de seguretat</h1>
-<h2 id="conceptes-teorics">Conceptes teòrics</h2>
+<h1 id="servidor-samba">Servidor samba<a class="headerlink" href="#servidor-samba" title="Permanent link">&para;</a></h1>
+<h1 id="copies-de-seguretat">Còpies de seguretat<a class="headerlink" href="#copies-de-seguretat" title="Permanent link">&para;</a></h1>
+<h2 id="conceptes-teorics">Conceptes teòrics<a class="headerlink" href="#conceptes-teorics" title="Permanent link">&para;</a></h2>
 <p>S’ha d’establir una bona política de còpies de seguretat per al que cal conèixer els següents conceptes respecte als tipus de còpies de seguretat:</p>
 <ul>
 <li>Completes</li>
 <li>Diferencials</li>
 <li>Incrementals</li>
 </ul>
-<h3 id="copies-de-seguretat-completes">Còpies de seguretat completes:</h3>
+<h3 id="copies-de-seguretat-completes">Còpies de seguretat completes:<a class="headerlink" href="#copies-de-seguretat-completes" title="Permanent link">&para;</a></h3>
 <p>Les còpies de seguretat completes copien tots els continguts al complet, cosa que fa fàcil la posterior recuperació de les dades. Cal considerar que al ser completa serà més lenta de fer i de restaurar.</p>
-<h3 id="copies-de-seguretat-diferencials">Còpies de seguretat diferencials:</h3>
+<h3 id="copies-de-seguretat-diferencials">Còpies de seguretat diferencials:<a class="headerlink" href="#copies-de-seguretat-diferencials" title="Permanent link">&para;</a></h3>
 <p>Emmagatzema còpies només dels canvis fets des de la última còpia completa, per restaurar-la necessitem la última còpia completa i la última diferencial.</p>
-<h3 id="copies-de-seguretat-incrementals">Còpies de seguretat incrementals:</h3>
+<h3 id="copies-de-seguretat-incrementals">Còpies de seguretat incrementals:<a class="headerlink" href="#copies-de-seguretat-incrementals" title="Permanent link">&para;</a></h3>
 <p>Guarda la informació des de la última còpia qualsevol. Per restaurar necessita la última còpia completa, la última còpia diferencial i totes les còpies incrementals</p>
-<h2 id="programes-en-interficie">Programes en Interfície</h2>
+<h2 id="programes-en-interficie">Programes en Interfície<a class="headerlink" href="#programes-en-interficie" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Deja-Dup</li>
 </ul>
-<h2 id="comandes">Comandes</h2>
+<h2 id="comandes">Comandes<a class="headerlink" href="#comandes" title="Permanent link">&para;</a></h2>
 <p>taula comparativa</p>
 <p>diferències fonamentals:</p>
 <p>cp: és una còpia simple no intel·ligent que no mira res i ho còpia tot, es fa en local.</p>
@@ -179,9 +186,9 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 <p>Primer fem la còpia al disc dur. Després, al montar-lo a la carpeta “copia_dades_de_dades” apareixen els arxius resultants de la còpia (no es mostraven abans ja que el disc no estava muntat, però això ja s’ha vist a l’apartat de particions)</p>
 <p><img alt="imagen.png" src="../imagen%209.png" /></p>
 <p>A l’ultima imatge, els hash no són iguals ja que a l’hora de fer la còpia hem utilitzat 4M per la velocitat, i alguna cosa haurà anat diferent, al refer la còpia amb 1M la còpia acaba resultant perfecta i els arxius i estructures de dades son iguals resultant en un hash idèntic per totes dues particions.</p>
-<h2 id="automatitzacio-dscripts-i-cron-i-anacron">Automatització d’scripts i cron i anacron</h2>
-<h2 id="teoria">Teoria</h2>
-<h3 id="diferencies-entre-anacron-i-cron">Diferències entre anacron i cron</h3>
+<h2 id="automatitzacio-dscripts-i-cron-i-anacron">Automatització d’scripts i cron i anacron<a class="headerlink" href="#automatitzacio-dscripts-i-cron-i-anacron" title="Permanent link">&para;</a></h2>
+<h2 id="teoria">Teoria<a class="headerlink" href="#teoria" title="Permanent link">&para;</a></h2>
+<h3 id="diferencies-entre-anacron-i-cron">Diferències entre anacron i cron<a class="headerlink" href="#diferencies-entre-anacron-i-cron" title="Permanent link">&para;</a></h3>
 <p>En sistemes operatius anteriors funcionaven per separat, ara estan integrats i funcionen de forma conjunta. Serveixen per automatitzar tasques. Veurem quan utilitzar un i l’altre:</p>
 <p><strong>Anacron</strong>: L’utilitzarem quan un ordinador pugue estar apagat, ja que en engegar-se anacron detecta que hi ha una tasca no executada i l’executa. L’utilitzarem també quan sigue una automatització general a nivell general i de SO</p>
 <p><strong>Cron:</strong> Quan executem alguna cosa molt concreta a una hora determinada i pensem que l’ordinador estarà engegat.</p>
@@ -189,7 +196,7 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 <p>Quan volem definir alguna cosa específica per algun usuari en particular utilitzarem:</p>
 <p><em>crontab -e -u usuari</em></p>
 <p>Dintre del directori /etc/cron/ hi ha carpetes preparades.</p>
-<h2 id="practica">Pràctica</h2>
+<h2 id="practica">Pràctica<a class="headerlink" href="#practica" title="Permanent link">&para;</a></h2>
 <p>En l’exemple següent creem un script per crear un arxiu de forma automatitzada en engegar l’ordinador.</p>
 <p><img alt="image.png" src="../image.png" /></p>
 <p>Obrim un editor de text (<code>nano</code>) per crear un script bash  “<code>copia.sh</code>".</p>
@@ -202,7 +209,7 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 <p><img alt="image.png" src="../image%203.png" /></p>
 <p>Comprovem que la programació està configurada i copiem l'script al directori <code>cron.daily</code> per assegurar que s'executi diàriament si és necessari.</p>
 <p><img alt="image.png" src="../image%204.png" /></p>
-<h2 id="conclusio">Conclusió</h2>
+<h2 id="conclusio">Conclusió<a class="headerlink" href="#conclusio" title="Permanent link">&para;</a></h2>
 <p>Aquest procés ens permet configurar un sistema automàtic de còpies de seguretat amb un script d’execució automàtica utilitzant cron.</p>
 
   <br>
@@ -215,11 +222,21 @@ Per exemple, tots els usuaris del grup “sudoers” poden utilitzar les comande
 
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
+    <div class="wm-article-nav pull-right">
+      <a href="../Sprint3/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Sprint3/" class="btn btn-xs btn-link">
+        Sprint3
+      </a>
+    </div>
+    
     <div class="wm-article-nav">
-      <a href="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/" class="btn btn-xs btn-default pull-left">
+      <a href=".." class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Sprint%203%2017b1cc235019808b89d2d6ef906d090c/" class="btn btn-xs btn-link">
-        Sprint 3
+        Previous</a><a href=".." class="btn btn-xs btn-link">
+        Pàgina Principal
       </a>
     </div>
     
