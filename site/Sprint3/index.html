@@ -32,12 +32,13 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "INSTAL\u00b7LACI\u00d3 DEL DOMINI LDAP", url: "#_top", children: [
+          {title: "Sprint 3", url: "#_top", children: [
           ]},
-          {title: "2. Unir equips al domini", url: "#2-unir-equips-al-domini", children: [
+          {title: "INSTAL\u00b7LACI\u00d3 DEL DOMINI LDAP", url: "#installacio-del-domini-ldap", children: [
+              {title: "Unir equips al domini", url: "#unir-equips-al-domini" },
               {title: "Un cop a la maquina client", url: "#un-cop-a-la-maquina-client" },
           ]},
-          {title: "3. Gesti\u00f3 del domini LDAP", url: "#3-gestio-del-domini-ldap", children: [
+          {title: "GESTI\u00d3 DEL DOMINI LDAP", url: "#gestio-del-domini-ldap", children: [
               {title: "ldapsearch", url: "#ldapsearch" },
               {title: "Afegir dades", url: "#afegir-dades" },
               {title: "Esborrar dades", url: "#esborrar-dades" },
@@ -47,16 +48,10 @@
               {title: "Afegir una nova entrada \u201calu2\u201d", url: "#afegir-una-nova-entrada-alu2" },
               {title: "Copiar l\u2019entrada ja existent de \u201calu1\u201d i cambiar les dades necess\u00e0ries", url: "#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" },
           ]},
-          {title: "SAMBA", url: "#samba", children: [
-              {title: "Instal\u00b7laci\u00f3 del servidor", url: "#installacio-del-servidor" },
-              {title: "Crear usuaris a Samba", url: "#crear-usuaris-a-samba" },
-              {title: "Afegir usuaris a Samba", url: "#afegir-usuaris-a-samba" },
-              {title: "Client Samba", url: "#client-samba" },
-          ]},
           {title: "COMPARTIR RECURSOS", url: "#compartir-recursos", children: [
+              {title: "SAMBA", url: "#samba" },
               {title: "Servidor NFS", url: "#servidor-nfs" },
-              {title: "CONFIGURACIONS DELS CLIENTS", url: "#configuracions-dels-clients" },
-              {title: "NFS 3. PERFILS M\u00d2BILS", url: "#nfs-3-perfils-mobils" },
+              {title: "PERFILS M\u00d2BILS AMB LDAP", url: "#perfils-mobils-amb-ldap" },
           ]},
         ];
 
@@ -95,7 +90,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP<a class="headerlink" href="#installacio-del-domini-ldap" title="Permanent link">&para;</a></h1>
+    <h1 id="sprint-3">Sprint 3<a class="headerlink" href="#sprint-3" title="Permanent link">&para;</a></h1>
+<h1 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP<a class="headerlink" href="#installacio-del-domini-ldap" title="Permanent link">&para;</a></h1>
 <p>Primer canviem el hostname i afegim el nom del domini que estarem utilitzant durant la manipulació del ldap.</p>
 <p><img alt="image.png" src="../image.png" /></p>
 <p><img alt="image.png" src="../image%201.png" /></p>
@@ -119,7 +115,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2011.png" /></p>
 <p><img alt="image.png" src="../image%2012.png" /></p>
 <p>Finalment veiem com amb la comanda <code>slapcat</code> sen’s mostra el nou domini i la seva organització.</p>
-<h1 id="2-unir-equips-al-domini">2. Unir equips al domini<a class="headerlink" href="#2-unir-equips-al-domini" title="Permanent link">&para;</a></h1>
+<h2 id="unir-equips-al-domini">Unir equips al domini<a class="headerlink" href="#unir-equips-al-domini" title="Permanent link">&para;</a></h2>
 <p>Crearem una unitat organitzativa, que es un contenidor dins del directori per guardar objectes com: usuaris i grups.</p>
 <p><img alt="image.png" src="../image%2013.png" /></p>
 <p>Creem un grup anomenat alumnes per a poder posar els usuaris creats i posem els usuaris que volem afegir a la part inferior.</p>
@@ -170,7 +166,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2034.png" /></p>
 <p><img alt="image.png" src="../image%2035.png" /></p>
 <hr />
-<h1 id="3-gestio-del-domini-ldap">3. Gestió del domini LDAP<a class="headerlink" href="#3-gestio-del-domini-ldap" title="Permanent link">&para;</a></h1>
+<h1 id="gestio-del-domini-ldap">GESTIÓ DEL DOMINI LDAP<a class="headerlink" href="#gestio-del-domini-ldap" title="Permanent link">&para;</a></h1>
 <p>Un cop tenim un domini creat hem de ser capaços de gestinar-lo, ja sigui afegint, eliminant o modificant paràmetres del mateix.</p>
 <p>Per fer-ho hem eliminat l’antiga base i n’hem creat una de nova amb <code>dpkg-reconfigure slapd</code></p>
 <p><img alt="image.png" src="../image%2036.png" /></p>
@@ -276,10 +272,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Un cop afegit el’usuari ja podem conectar-nos amb “alu2”.</p>
 <p><img alt="image.png" src="../image%2074.png" /></p>
 <hr />
-<h1 id="samba">SAMBA<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h1>
+<h1 id="compartir-recursos">COMPARTIR RECURSOS<a class="headerlink" href="#compartir-recursos" title="Permanent link">&para;</a></h1>
+<h2 id="samba">SAMBA<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h2>
 <p>Amb un servidor Samba, es necessita una autenticació d’usuari i pot no només compartir fitxers i carpetes si bé també accés a impresores.</p>
 <p>Afortunadament Samba pot treballar de la mà d’LDAP, amb qui validarem els usuaris que registrem.</p>
-<h2 id="installacio-del-servidor">Instal·lació del servidor<a class="headerlink" href="#installacio-del-servidor" title="Permanent link">&para;</a></h2>
+<h3 id="installacio-del-servidor">Instal·lació del servidor<a class="headerlink" href="#installacio-del-servidor" title="Permanent link">&para;</a></h3>
 <p>Primer instal·lem samba amb <code>apt install samba</code> .</p>
 <p><img alt="image.png" src="../image%2075.png" /></p>
 <p>Després ens dirigirem al fitxer següent, que modificarem amb els següents parametres (Ho afegirem tot al final del fitxer):</p>
@@ -298,7 +295,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
    invalid users = enric</p>
 <p>Per aplicar els canvis hem de reiniciar el servei samb amb les comandes <code>systemctl restart smbd nmbd</code> i <code>systemctl status smbd nmbd</code> per comprobar el reinici i veure si s’han reiniciat sense errors.</p>
 <p><img alt="image.png" src="../image%2078.png" /></p>
-<h2 id="crear-usuaris-a-samba">Crear usuaris a Samba<a class="headerlink" href="#crear-usuaris-a-samba" title="Permanent link">&para;</a></h2>
+<h3 id="crear-usuaris-a-samba">Crear usuaris a Samba<a class="headerlink" href="#crear-usuaris-a-samba" title="Permanent link">&para;</a></h3>
 <p>Ara, crearem els usuaris que hem definit als paràmetres anteriors</p>
 <p><code>useradd -M -s /sbin/nologin raul</code></p>
 <p><code>useradd -M -s /sbin/nologin enric</code></p>
@@ -309,71 +306,100 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><code>adduser enric dam</code></p>
 <p><code>adduser walid dam</code></p>
 <p><img alt="image.png" src="../image%2080.png" /></p>
-<h2 id="afegir-usuaris-a-samba">Afegir usuaris a Samba<a class="headerlink" href="#afegir-usuaris-a-samba" title="Permanent link">&para;</a></h2>
+<h3 id="afegir-usuaris-a-samba">Afegir usuaris a Samba<a class="headerlink" href="#afegir-usuaris-a-samba" title="Permanent link">&para;</a></h3>
 <p>Per últim queda fegir els usuaris de la màquina a Samba a traves de la comanda <code>smbpasswd -a &lt;usuari&gt;</code> i a cadascún li ficarem la seva contrasenya.</p>
 <p><code>smbpasswd -a raul</code></p>
 <p><code>smbpasswd -a enric</code></p>
 <p><code>smbpasswd -a walid</code></p>
 <p><img alt="image.png" src="../image%2081.png" /></p>
-<h2 id="client-samba">Client Samba<a class="headerlink" href="#client-samba" title="Permanent link">&para;</a></h2>
-<p>Ara instal·larem el client amb <code>apt install smbclient</code></p>
+<h3 id="client-samba">Client Samba<a class="headerlink" href="#client-samba" title="Permanent link">&para;</a></h3>
+<p>Ara instal·larem el client amb <code>apt install smbclient</code> .</p>
 <p><img alt="image.png" src="../image%2082.png" /></p>
 <p>Obrim l’explorador de fitxers, a l’opció “Otras ubicaciones”. Buscarem la carpeta<code>/perfils</code> compartida amb l’adreça <code>smb://&lt;ipservidor&gt;/perfils.</code></p>
-<hr />
-<h1 id="compartir-recursos">COMPARTIR RECURSOS<a class="headerlink" href="#compartir-recursos" title="Permanent link">&para;</a></h1>
-<h2 id="servidor-nfs">Servidor NFS<a class="headerlink" href="#servidor-nfs" title="Permanent link">&para;</a></h2>
-<p>Tants servidor samba com NFS serveixen per compratir recursos. Permet fer auth en usuari pero amb kerberos, però és tant dificil que es millor utilitzar samba.</p>
-<p>Primer instalem els paquets necessaris amb <code>apt install nfs-kernel-server</code> per utilitzar la funció i preparem la carpeta on es concectaran tant el nostre windows com l’ubuntu.</p>
+<p>En aquest cas <code>smb://10.0.2.5/perfils</code> .</p>
+<p>Provem a entrar de forma anònima, hauriem de ser capaços, tal i com hem establert al fitxer anterior.</p>
 <p><img alt="image.png" src="../image%2083.png" /></p>
-<p>Afegim una linia per indicar la carpeta compartida al arxiu <code>/etc/exports</code>.</p>
+<p>Però no podem afegir fitxers/carpetes.</p>
 <p><img alt="image.png" src="../image%2084.png" /></p>
-<p>Reiniciem el servei per aplicar els canvis.</p>
 <p><img alt="image.png" src="../image%2085.png" /></p>
-<h2 id="configuracions-dels-clients">CONFIGURACIONS DELS CLIENTS<a class="headerlink" href="#configuracions-dels-clients" title="Permanent link">&para;</a></h2>
-<p>Ara instal·lem el paquet necessari per muntar la carpeta compartida al nostre ubuntu, contràriament no podrem afegir res ni fer servir la carpeta compartida.</p>
+<p>Si accedim amb “raul” que no tenia cap restricció podrem afegir tant fitxers com carpetes.</p>
 <p><img alt="image.png" src="../image%2086.png" /></p>
+<p><img alt="Captura de pantalla de 2025-03-12 10-43-21.png" src="../Captura_de_pantalla_de_2025-03-12_10-43-21.png" /></p>
+<p><img alt="Captura de pantalla de 2025-03-12 10-43-25.png" src="../Captura_de_pantalla_de_2025-03-12_10-43-25.png" /></p>
+<p>Si fem un ls -l a la terminal desde el server, podrem veure com “raul” és el propietari de la carpeta.</p>
+<p><img alt="image.png" src="../image%2087.png" /></p>
+<p>Si provem en la resta d’usuaris veurem que:</p>
+<p>“enric”  no pots ni tan sols accedir tal i com hem especificat.</p>
+<p><em>Nota: Podem intentar accedir les vegades que vulguem, sempre tornarem a aquesta finestra.</em></p>
+<p><img alt="image.png" src="../image%2088.png" /></p>
+<p>Walid pot accedir però no pot crear res.</p>
+<p><img alt="image.png" src="../image%2089.png" /></p>
+<p><img alt="Captura de pantalla de 2025-03-12 16-29-07.png" src="../Captura_de_pantalla_de_2025-03-12_16-29-07.png" /></p>
+<p><img alt="Captura de pantalla de 2025-03-12 16-29-16.png" src="../Captura_de_pantalla_de_2025-03-12_16-29-16.png" /></p>
+<hr />
+<h2 id="servidor-nfs">Servidor NFS<a class="headerlink" href="#servidor-nfs" title="Permanent link">&para;</a></h2>
+<p>Tants servidor samba com NFS serveixen per compratir recursos. NFS permet fer auth en usuari però amb kerberos, i és tant difícil que és millor utilitzar samba.</p>
+<p>Primer instal·lem els paquets necessaris amb <code>apt install nfs-kernel-server</code> per utilitzar la funció i preparem la carpeta on es concectaran tant el nostre windows com l’ubuntu.</p>
+<p><img alt="image.png" src="../image%2090.png" /></p>
+<p>Afegim una linia per indicar la carpeta compartida al arxiu <code>/etc/exports</code>.</p>
+<p><img alt="image.png" src="../image%2091.png" /></p>
+<p>Reiniciem el servei per aplicar els canvis.</p>
+<p><img alt="image.png" src="../image%2092.png" /></p>
+<h3 id="configuracio-del-clients">Configuracio del clients<a class="headerlink" href="#configuracio-del-clients" title="Permanent link">&para;</a></h3>
+<p>Ara instal·lem el paquet necessari per muntar la carpeta compartida al nostre ubuntu, contràriament no podrem afegir res ni fer servir la carpeta compartida.</p>
+<p><img alt="image.png" src="../image%2093.png" /></p>
 <p>Ara, hem de crear una carpeta que apuntara a la carpeta que es comparteix entre els sistemes i muntarla a la ip del servidor amb la seva ruta.</p>
 <p>Des de la màquina Windows hem d’accedir a les característiques del sistema per activar l’opció “Servicios para NFS”.</p>
 <p><em>Nota: Estem utilitzant una MV amb Windows 11 Pro. Revisar instruccions segons l’idioma del sistema, ja que poden no ser 100% precises.</em></p>
 <p><img alt="image.png" src="../4e0c735c-e978-49f8-94d4-b1bf7fd616ba.png" /></p>
-<p><img alt="image.png" src="../image%2087.png" /></p>
-<p><img alt="image.png" src="../image%2088.png" /></p>
+<p><img alt="image.png" src="../image%2094.png" /></p>
+<p><img alt="image.png" src="../image%2095.png" /></p>
 <p>Windows instal·larà automàticament els recursos necessaris.</p>
-<p><img alt="image.png" src="../image%2089.png" /></p>
+<p><img alt="image.png" src="../image%2096.png" /></p>
 <p>Finalment per accedir a la carpeta compartida, només hem d’escriure: <code>\\serverIp\DirectoryName</code> , en el meu cas és <code>\\10.0.2.5\compartida</code> .</p>
 <p>Aqui veurem tots els fitxer que creem a l’ubuntu o al windows, en tots dos sistemes.</p>
-<p><img alt="image.png" src="../image%2090.png" /></p>
-<p>Finalment podem veure com el fitxer windows.txt, que hem creat al sistema Windows, apareix a la carpeta desde el sistema ubuntu.</p>
-<p><img alt="image.png" src="../image%2091.png" /></p>
-<h2 id="nfs-3-perfils-mobils">NFS 3. PERFILS MÒBILS<a class="headerlink" href="#nfs-3-perfils-mobils" title="Permanent link">&para;</a></h2>
-<h3 id="part-server">PART SERVER<a class="headerlink" href="#part-server" title="Permanent link">&para;</a></h3>
-<p>Amb NFS necessitem instalar el següetn paquet.</p>
-<p><img alt="image.png" src="../image%2092.png" /></p>
-<p>Creem la carpeta on es compartiràn els fitxers.</p>
-<p><img alt="image.png" src="../image%2093.png" /></p>
-<p>Afegim la última linia</p>
-<p><img alt="image.png" src="../image%2094.png" /></p>
-<p>I reiniciem per aplicar els canvis</p>
-<p><img alt="image.png" src="../image%2095.png" /></p>
-<p>Seguidament haurem de crear un grup i un usuari, ho farem amb els següent fitxers:</p>
-<p><img alt="image.png" src="../image%2096.png" /></p>
 <p><img alt="image.png" src="../image%2097.png" /></p>
-<p>Un cop emplenats, els afegim a LDAP</p>
+<p>Finalment podem veure com el fitxer windows.txt, que hem creat al sistema Windows, apareix a la carpeta desde el sistema ubuntu.</p>
 <p><img alt="image.png" src="../image%2098.png" /></p>
-<h3 id="part-client">PART CLIENT<a class="headerlink" href="#part-client" title="Permanent link">&para;</a></h3>
+<h2 id="perfils-mobils-amb-ldap">PERFILS MÒBILS AMB LDAP<a class="headerlink" href="#perfils-mobils-amb-ldap" title="Permanent link">&para;</a></h2>
+<h3 id="part-server">Part server<a class="headerlink" href="#part-server" title="Permanent link">&para;</a></h3>
+<p>Per fer-ho amb NFS, necessitem instal·lar el següent paquet</p>
+<p><img alt="image.png" src="../image%2099.png" /></p>
+<p>Creem la carpeta on es compartiràn els fitxers.</p>
+<p><img alt="image.png" src="../image%20100.png" /></p>
+<p>Afegim la última linia, que indica al sistema la ruta de la carpeta a compartir (que al meteix temps sera la home del usuaris que afegim).</p>
+<p><img alt="image.png" src="../image%20101.png" /></p>
+<p>I reiniciem el servei per aplicar els canvis.</p>
+<p><img alt="image.png" src="../image%20102.png" /></p>
+<p>Seguidament haurem de crear un grup i un usuari, ho farem amb els següents fitxers i paràmetres:</p>
+<p><em>Aquí creem el grup al que en formarà part l’usuari.</em></p>
+<p><img alt="image.png" src="../image%20103.png" /></p>
+<p><em>Aquí creem l’usuari amb tots els seus paràmetres (poden afegir-se’n més). Podem veure que l’usuari utilitza</em> <code>/perfils/alu54</code> al seu paràmetre “homeDirectory” és això el que li diu a LDAP quina és la seva “home” o “carpeta arrel de l’usuari” que, com veurem més avant, és una carpeta local que apunta a una carpeta compartida.</p>
+<p><img alt="image.png" src="../image%20104.png" /></p>
+<p>Un cop emplenats, els afegim a LDAP amb la comanda :</p>
+<p><code>ldapadd -c -x -D “el nostre domini LDAP” -W -f fitxer.ldif</code></p>
+<p>en el meu cas: <code>ldapadd -c -x -D "cn=admin,dc=joel,dc=com" -W -f fitxer.ldif</code></p>
+<p><em>Nota: Es destaca que; fitxer.ldif fa referència a l’usuri o grup que volem afegir que, com hem vist, tenen fitxers diferents.</em> </p>
+<p><img alt="image.png" src="../image%20105.png" /></p>
+<h3 id="part-client">Part client<a class="headerlink" href="#part-client" title="Permanent link">&para;</a></h3>
 <p>Ja només ens queda configurar els usuaris a la màquina client.</p>
 <p>Instal·lem paquets necessaris.</p>
-<p><img alt="image.png" src="../image%2099.png" /></p>
-<p>creem una carpeta que servira també per compartir els fitxers</p>
-<p><img alt="image.png" src="../image%20100.png" /></p>
-<p>i al fitxer <code>/etc/fstab</code> afegim l’ultima linia, que és la ip del servidor seguida d’alguns paràmetres necessaris pel correcte funcionament.</p>
-<p><img alt="image.png" src="../image%20101.png" /></p>
-<p>Finalment si reiniciem el client i intentem llistar-nos amb l’usuari i la contrasenya que hem especificat, podrem utilitzar l’usuari alu54 (en aquest cas) a qualsevol màquina en qui estigui conectat el sistema.</p>
-<p><img alt="image.png" src="../image%20102.png" /></p>
-<p><img alt="image.png" src="../image%20103.png" /></p>
-<p><img alt="image.png" src="../image%20104.png" /></p>
-<p><img alt="image.png" src="../image%20105.png" /></p>
 <p><img alt="image.png" src="../image%20106.png" /></p>
+<p>Creem una carpeta que servirà també per muntar la carpeta compartida al damunt (li fiquem el mateix nom per saber que a efectes pràctics son la mateixa carpeta) on emmagatzemarem els fitxers i directoris personals dels usuaris.</p>
+<p><img alt="image.png" src="../image%20107.png" /></p>
+<p>i al fitxer <code>/etc/fstab</code> afegim l’última linia, que és la que indica on s’ha de muntar la carpeta local i amb quina ip (la del servidor) seguida d’alguns paràmetres necessaris pel correcte funcionament.</p>
+<p><img alt="image.png" src="../image%20108.png" /></p>
+<p>Finalment si reiniciem el client i intentem llistar-nos amb l’usuari i la contrasenya que hem especificat, podrem utilitzar l’usuari alu54 (en aquest cas) a qualsevol màquina en qui estigui conectat el sistema.</p>
+<p><img alt="image.png" src="../image%20109.png" /></p>
+<p><img alt="image.png" src="../image%20110.png" /></p>
+<p><img alt="image.png" src="../image%20111.png" /></p>
+<p><img alt="image.png" src="../image%20112.png" /></p>
+<p>“hola” és el fitxer que creem desde el client.</p>
+<p><img alt="image.png" src="../image%20113.png" /></p>
+<p>Finalment, des del server comprovem que s’ha creat la carpeta “alu54” a <code>/perfils</code>, és a dir, la seva home.</p>
+<p><img alt="image.png" src="../image%20114.png" /></p>
+<p>I com aquesta te el fitxer “hola” que acabem de crear.</p>
+<p><img alt="image.png" src="../image%20115.png" /></p>
 
   <br>
     
