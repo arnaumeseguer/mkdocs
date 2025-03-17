@@ -32,13 +32,15 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Gestionar un equip en diferent xarxa (amb Team Viewer)", url: "#_top", children: [
-          ]},
-          {title: "Conclusi\u00f3", url: "#conclusio", children: [
-          ]},
-          {title: "Logs del sistema i aplicacions", url: "#logs-del-sistema-i-aplicacions", children: [
-          ]},
-          {title: "Proves amb logs", url: "#proves-amb-logs", children: [
+          {title: "Sprint 4: Monitoritzaci\u00f3, connexi\u00f3 remota i llicenciament", url: "#_top", children: [
+              {title: "Gestionar un equip en diferent xarxa (amb Team Viewer)", url: "#gestionar-un-equip-en-diferent-xarxa-amb-team-viewer" },
+              {title: "Conclusi\u00f3", url: "#conclusio" },
+              {title: "Logs del sistema i aplicacions", url: "#logs-del-sistema-i-aplicacions" },
+              {title: "Proves amb logs", url: "#proves-amb-logs" },
+              {title: "Rotaci\u00f3 de logs", url: "#rotacio-de-logs" },
+              {title: "\u201cjournalctl\u201d", url: "#journalctl" },
+              {title: "Compartir logs en xarxa", url: "#compartir-logs-en-xarxa" },
+              {title: "Llic\u00e8nciament d\u2019un programa", url: "#llicenciament-dun-programa" },
           ]},
         ];
 
@@ -77,7 +79,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h2 id="gestionar-un-equip-en-diferent-xarxa-amb-team-viewer">Gestionar un equip en diferent xarxa (amb Team Viewer)<a class="headerlink" href="#gestionar-un-equip-en-diferent-xarxa-amb-team-viewer" title="Permanent link">&para;</a></h2>
+    <h1 id="sprint-4-monitoritzacio-connexio-remota-i-llicenciament">Sprint 4: Monitorització, connexió remota i llicenciament<a class="headerlink" href="#sprint-4-monitoritzacio-connexio-remota-i-llicenciament" title="Permanent link">&para;</a></h1>
+<h2 id="gestionar-un-equip-en-diferent-xarxa-amb-team-viewer">Gestionar un equip en diferent xarxa (amb Team Viewer)<a class="headerlink" href="#gestionar-un-equip-en-diferent-xarxa-amb-team-viewer" title="Permanent link">&para;</a></h2>
 <p>El primer pas serà descarregar Team viewer desde la seva <a href="https://www.teamviewer.com/es/download/free-download-with-license-options/?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=es%7Cb%7Cpr%7C22%7Csep%7Ctv-core-brand-only-exact-sn%7Cnew%7Ct0%7C0&amp;utm_content=Exact&amp;utm_term=teamviewer">pàgina oficial</a>.</p>
 <p><img alt="image.png" src="../image.png" /></p>
 <p><img alt="image.png" src="../image%201.png" /></p>
@@ -100,7 +103,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Tot i així pot esdevenir una eina molt perillosa si es filtren les credencials, així que s’ha de tenir compte i evitar donar-les a qualsevol que les demani.</p>
 <hr />
 <h2 id="logs-del-sistema-i-aplicacions">Logs del sistema i aplicacions<a class="headerlink" href="#logs-del-sistema-i-aplicacions" title="Permanent link">&para;</a></h2>
-<p>Per monitoritzar un sistema ubuntu sutilitzen uns fitxers anomenats “logs”, hi ha propis del OS i hi ha apps que tenen els seus propis, nosaltres establirem interpretacions de logs per fer proves amb aquests.</p>
+<p>Per monitoritzar un sistema ubuntu sutilitzen usn fitxers anomenats “logs”, hi ha propis del os i hi ha apps que tenen els seus propis, nosaltres establirem interpretacions de logs per fer proves amb aquests .</p>
 <p>Quan parlem de logs hi ha diversos tipus, segons l’aplicació, servei… en aquesta pràctica veurem com modificar les interpretacions del sistema aconseguint així diverses “interaccions” entre els diferents logs.</p>
 <p>Aquesta és la jerarquia que segueixen els logs segons el nivell d’alerta.</p>
 <table>
@@ -167,6 +170,101 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2012.png" /></p>
 <p>I si ens fixem amb el fitxer <code>/var/log/syslog</code> amb un <code>tail -f</code> , podem veure com si es registra.</p>
 <p><img alt="image.png" src="../image%2013.png" /></p>
+<h2 id="rotacio-de-logs">Rotació de logs<a class="headerlink" href="#rotacio-de-logs" title="Permanent link">&para;</a></h2>
+<p>Per últim tenim la rotació de logs. La rotació de logs és un procés automàtic que arxiva, esborra o comprimeix els logs antics per evitar que ocupin massa espai al sistema.</p>
+<p>Hi ha una configuració predeterminada que gestiona automàticament els logs per tal que no ocupin massa espai, es troba al directori <code>/etc/logrotate.d</code> .</p>
+<p><img alt="image.png" src="../bea1be46-4561-4ed2-a256-12eaee800121.png" /></p>
+<h2 id="journalctl">“journalctl”<a class="headerlink" href="#journalctl" title="Permanent link">&para;</a></h2>
+<p>La comanda <code>journalctl</code> serveix per revisar logs. És cert que es pot utilitzar un cat sobre un fitxer.log específic per obtenir un resultat semblant i vàlid, però fer servir <code>journalctl</code> per consultar els logs del sistema té diversos avantatges respecte a fer un <code>cat</code> directament als fitxers:</p>
+<h3 id="1-centralitzacio-dels-logs"><strong>1. Centralització dels logs</strong><a class="headerlink" href="#1-centralitzacio-dels-logs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>journalctl</code> consulta el <strong>systemd journal</strong>, que unifica logs de diferents serveis i components del sistema en un sol lloc (<code>/var/log/journal</code>).</li>
+</ul>
+<p><img alt="image.png" src="../image%2014.png" /></p>
+<ul>
+<li>En canvi, <code>cat</code> només mostra el contingut d’un únic fitxer de log, per la qual cosa has de saber exactament quin fitxer vols revisar.</li>
+</ul>
+<h3 id="2-filtres"><strong>2. Filtres</strong><a class="headerlink" href="#2-filtres" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>journalctl</code> permet aplicar <strong>filtres per unitat (<code>u</code>), nivell de gravetat (<code>p</code>), rang de temps (<code>-since</code> i <code>-until</code>)</strong>, PID, i molt més.</li>
+<li>Amb <code>cat</code>, hauries d’usar <code>grep</code>, <code>awk</code>, o altres eines per filtrar manualment.</li>
+</ul>
+<h3 id="3-visualitzacio-mes-clara"><strong>3. Visualització més clara</strong><a class="headerlink" href="#3-visualitzacio-mes-clara" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>journalctl</code> permet mostrar els logs en format estructurat, amb sortida <strong>amb colors i paginada</strong>.</li>
+<li><code>cat</code> imprimeix tot el contingut de cop, el que pot ser poc manejable si el fitxer és molt gran.</li>
+</ul>
+<h3 id="4-logs-persistents-i-volatils"><strong>4. Logs persistents i volàtils</strong><a class="headerlink" href="#4-logs-persistents-i-volatils" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>journalctl</code> accedeix tant als logs <strong>persistents</strong> (guardats a <code>/var/log/journal/</code>) com als <strong>volàtils</strong> (memòria RAM, útils per depuració immediata).</li>
+<li><code>cat</code> només pot llegir logs persistents.</li>
+</ul>
+<h3 id="5-logs-en-temps-real"><strong>5. Logs en temps real</strong><a class="headerlink" href="#5-logs-en-temps-real" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Amb <code>journalctl -f</code>, pots veure els logs en temps real (similar a <code>tail -f</code>).</li>
+<li>Amb <code>cat</code>, hauries d’usar <code>tail -f</code> manualment:</li>
+</ul>
+<p><img alt="image.png" src="../image%2015.png" /></p>
+<h3 id="6-informacio-estructurada"><strong>6. Informació estructurada</strong><a class="headerlink" href="#6-informacio-estructurada" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>journalctl</code> mostra informació estructurada sobre cada entrada del log, incloent metadades com <strong>unitat systemd, PID, servei i usuari</strong>.</li>
+<li><code>cat</code> només mostra el text cru sense format.</li>
+</ul>
+<p>En resum, <code>journalctl</code> és molt més eficient que cat sent aquest últim molt rudimentari.</p>
+<h2 id="compartir-logs-en-xarxa">Compartir logs en xarxa<a class="headerlink" href="#compartir-logs-en-xarxa" title="Permanent link">&para;</a></h2>
+<p>Hem vist com gestionar i observar els logs del nostre sistema, però i si volem enviar-los a un altre sistema automàticament en temps real?</p>
+<h3 id="configurar-ordinador-receptor">Configurar ordinador receptor<a class="headerlink" href="#configurar-ordinador-receptor" title="Permanent link">&para;</a></h3>
+<p>Primer hem de configurar l’ordinador que rebrà el logs:</p>
+<p><code>sudo apt update &amp;&amp; sudo apt install rsyslog</code>  → per actualitzar paquets i instal·lar els necessaris.</p>
+<p>Ara hem de modificar la configuració:</p>
+<p><code>sudo nano /etc/rsyslog.conf</code>  → Hem de modificar el fitxer i descomentar lés linies “module” i “input”.</p>
+<p><img alt="image.png" src="../image%2016.png" /></p>
+<p><img alt="image.png" src="../image%2017.png" /></p>
+<p>Guardem el fitxer, sortim i reiniciem el servei amb <code>sudo systemctl restart rsyslog</code> .</p>
+<p>A continuació hem d’obrir els ports al tallafocs per evitar problemes</p>
+<p><code>sudo ufw allow 514/udp</code></p>
+<p><code>sudo ufw allow 514/tcp</code></p>
+<p><img alt="image.png" src="../image%2018.png" /></p>
+<p>Ja tindriem el receptor configurat.</p>
+<h3 id="configurar-ordinador-emisor">Configurar ordinador emisor<a class="headerlink" href="#configurar-ordinador-emisor" title="Permanent link">&para;</a></h3>
+<p>Ara configurarem l’ordinador que enviará els logs:</p>
+<p><code>sudo apt update &amp;&amp; sudo apt install rsyslog</code>  → per actualitzar paquets i instal·lar els necessaris.</p>
+<p>Modifiquem la configuració →<code>sudo nano /etc/rsyslog.conf</code>. Hem d’afegir al final del fitxer les següents linies:</p>
+<p><code>**.** @IP_DEL_SERVIDOR:514    # Per UDP</code></p>
+<p><code>**.** @@IP_DEL_SERVIDOR:514   # Per TCP</code></p>
+<p><img alt="image.png" src="../image%2019.png" /></p>
+<p>Guardem el fitxer, sortim i reiniciem el servei amb <code>sudo systemctl restart rsyslog</code> .</p>
+<p>Fem un <code>tail -f /var/log/syslog</code> a l’ordinador receptor per vaure els logs i:</p>
+<p><img alt="image.png" src="../image%2020.png" /></p>
+<h2 id="llicenciament-dun-programa">Llicènciament d’un programa<a class="headerlink" href="#llicenciament-dun-programa" title="Permanent link">&para;</a></h2>
+<p>El procés de llicenciament d'una aplicació implica escollir una llicència adequada que defineixi com altres persones poden utilitzar, modificar i redistribuir el teu codi.</p>
+<h3 id="codi-obert-o-privat">Codi obert o privat<a class="headerlink" href="#codi-obert-o-privat" title="Permanent link">&para;</a></h3>
+<p>Primer has de decidir si el teu programa serà de codi obert o privat.</p>
+<p>El codi obert permet que altres persones utilitzin, modifiquin i distribueixin el teu codi sota certes condicions.</p>
+<p>Mentre que el privat no permet l'ús ni la modificació del codi sense el teu permís explícit.</p>
+<h3 id="alguns-exemples-de-llicencies-per-codi-obert">Alguns exemples de llicències per codi obert:<a class="headerlink" href="#alguns-exemples-de-llicencies-per-codi-obert" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>MIT</strong>: Qualsevol pot utilitzar, modificar i distribuir el codi, fins i tot en projectes comercials, sempre que es mantingui l'avís de copyright original.</li>
+<li><strong>Apache 2.0</strong>: Similar a la MIT, però inclou una clàusula de patents per protegir-te legalment.</li>
+<li><strong>BSD (2 o 3 clàusules)</strong>: Molt semblant a MIT, però amb restriccions addicionals en l'ús del nom de l'autor.</li>
+</ul>
+<p><img alt="image.png" src="../image%2021.png" /></p>
+<h3 id="alguns-exemples-de-llicencies-per-codi-privat">Alguns exemples de llicències per codi privat:<a class="headerlink" href="#alguns-exemples-de-llicencies-per-codi-privat" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Llicències comercials pròpies</strong>, on només tu pots distribuir i vendre el producte.</li>
+<li><strong>Freemium</strong>: On una part del teu programari és gratuïta, però certes funcionalitats són de pagament.</li>
+<li><strong>Llicència d'ús restringit</strong>, on els usuaris poden utilitzar l'aplicació però sense accés al codi font.</li>
+</ul>
+<h3 id="un-cop-escolida-la-llicencia">Un cop escolida la llicència<a class="headerlink" href="#un-cop-escolida-la-llicencia" title="Permanent link">&para;</a></h3>
+<p>Afegeix un fitxer <strong>LICENSE</strong> a l'arrel del teu projecte amb el text de la llicència i especifica la llicència en la documentació i a la teva pàgina web o repositori (GitHub, GitLab, etc.). En projectes públics, pots afegir una nota als teus fitxers font (<code>// Copyright 2025 - Llicència MIT</code>).</p>
+<h3 id="guies-per-triar-llicencies">Guies per triar llicències<a class="headerlink" href="#guies-per-triar-llicencies" title="Permanent link">&para;</a></h3>
+<p>Els textos de les llicències estan predefinits i es poden trobar a fonts oficials o generadors de llicències. Alguns llocs recomanats:</p>
+<ul>
+<li><a href="https://choosealicense.com/"><strong>Choose a License</strong></a> → Guia de GitHub per escollir una llicència i obtenir el text oficial.</li>
+<li><a href="https://opensource.org/"><strong>Open Source Initiative</strong></a> → Llista de llicències aprovades de codi obert.</li>
+<li><a href="https://chooser-beta.creativecommons.org/"><strong>Creative Commons</strong></a> → Per llicències no relacionades amb programari.</li>
+</ul>
+<p><img alt="image.png" src="../image%2022.png" /></p>
 
   <br>
     
