@@ -186,9 +186,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </ul>
 <h3 id="2-filtres"><strong>2. Filtres</strong><a class="headerlink" href="#2-filtres" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>journalctl</code> permet aplicar <strong>filtres per unitat (<code>u</code>), nivell de gravetat (<code>p</code>), rang de temps (<code>-since</code> i <code>-until</code>)</strong>, PID, i molt més.</li>
+<li><code>journalctl</code> permet aplicar <strong>filtres per servei (<code>u</code>), nivell de gravetat (<code>p</code>), rang de temps (<code>-since</code> i <code>-until</code>)</strong>, PID, i molt més.</li>
 <li>Amb <code>cat</code>, hauries d’usar <code>grep</code>, <code>awk</code>, o altres eines per filtrar manualment.</li>
 </ul>
+<p>Per exemple, si volem veure els logs del servei que gestiona les xarxes Ethernet, WIFI, etc podem fer un <code>journalctl -u NetworkManager</code></p>
+<p>Això ens mostra els logs del servei i si, a més, volem poder veurels en temps real nomes hem d’afegir un <code>-f</code> al final de la comanda anterior.</p>
+<p><img alt="image.png" src="../image%2015.png" /></p>
+<p>Si preferim veure logs segons la seva gravetat fem sevir <code>-p</code> juntament amb la taula dels nivells d’alerta esmentada anteriorment, per exemple:</p>
+<p>Amb <code>journalctl -p 2</code> veurem totes les alertes de nivell 2 i més greu ( &gt; 2 ). I igual que abans, si afegim un <code>-f</code> al final de la comanda veurem totes aquestes alertes en temps real.</p>
+<p><img alt="image.png" src="../image%2016.png" /></p>
+<p>També podriem voler veure les alertes generades apartir de certa data o fins a una, en aquest cas utilitzarem <code>--since</code> i <code>--until</code> :</p>
+<p><code>journalctl --since “1 hour ago”</code>:</p>
+<p><img alt="image.png" src="../image%2017.png" /></p>
+<p>També podem combinar-les :</p>
+<p><code>journalctl --since “2025-03-17 00:00:00” --until “2025-03-18 00:00:00”</code> Mostrarà totes les alertes entre ahir a les 00:00 i avui a les 00:00.</p>
+<p><img alt="image.png" src="../image%2018.png" /></p>
 <h3 id="3-visualitzacio-mes-clara"><strong>3. Visualització més clara</strong><a class="headerlink" href="#3-visualitzacio-mes-clara" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>journalctl</code> permet mostrar els logs en format estructurat, amb sortida <strong>amb colors i paginada</strong>.</li>
@@ -204,7 +216,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li>Amb <code>journalctl -f</code>, pots veure els logs en temps real (similar a <code>tail -f</code>).</li>
 <li>Amb <code>cat</code>, hauries d’usar <code>tail -f</code> manualment:</li>
 </ul>
-<p><img alt="image.png" src="../image%2015.png" /></p>
+<p><img alt="image.png" src="../image%2019.png" /></p>
 <h3 id="6-informacio-estructurada"><strong>6. Informació estructurada</strong><a class="headerlink" href="#6-informacio-estructurada" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>journalctl</code> mostra informació estructurada sobre cada entrada del log, incloent metadades com <strong>unitat systemd, PID, servei i usuari</strong>.</li>
@@ -218,13 +230,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><code>sudo apt update &amp;&amp; sudo apt install rsyslog</code>  → per actualitzar paquets i instal·lar els necessaris.</p>
 <p>Ara hem de modificar la configuració:</p>
 <p><code>sudo nano /etc/rsyslog.conf</code>  → Hem de modificar el fitxer i descomentar lés linies “module” i “input”.</p>
-<p><img alt="image.png" src="../image%2016.png" /></p>
-<p><img alt="image.png" src="../image%2017.png" /></p>
+<p><img alt="image.png" src="../image%2020.png" /></p>
+<p><img alt="image.png" src="../image%2021.png" /></p>
 <p>Guardem el fitxer, sortim i reiniciem el servei amb <code>sudo systemctl restart rsyslog</code> .</p>
 <p>A continuació hem d’obrir els ports al tallafocs per evitar problemes</p>
 <p><code>sudo ufw allow 514/udp</code></p>
 <p><code>sudo ufw allow 514/tcp</code></p>
-<p><img alt="image.png" src="../image%2018.png" /></p>
+<p><img alt="image.png" src="../image%2022.png" /></p>
 <p>Ja tindriem el receptor configurat.</p>
 <h3 id="configurar-ordinador-emisor">Configurar ordinador emisor<a class="headerlink" href="#configurar-ordinador-emisor" title="Permanent link">&para;</a></h3>
 <p>Ara configurarem l’ordinador que enviará els logs:</p>
@@ -232,10 +244,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Modifiquem la configuració →<code>sudo nano /etc/rsyslog.conf</code>. Hem d’afegir al final del fitxer les següents linies:</p>
 <p><code>**.** @IP_DEL_SERVIDOR:514    # Per UDP</code></p>
 <p><code>**.** @@IP_DEL_SERVIDOR:514   # Per TCP</code></p>
-<p><img alt="image.png" src="../image%2019.png" /></p>
+<p><img alt="image.png" src="../image%2023.png" /></p>
 <p>Guardem el fitxer, sortim i reiniciem el servei amb <code>sudo systemctl restart rsyslog</code> .</p>
 <p>Fem un <code>tail -f /var/log/syslog</code> a l’ordinador receptor per vaure els logs i:</p>
-<p><img alt="image.png" src="../image%2020.png" /></p>
+<p><img alt="image.png" src="../image%2024.png" /></p>
 <h2 id="llicenciament-dun-programa">Llicènciament d’un programa<a class="headerlink" href="#llicenciament-dun-programa" title="Permanent link">&para;</a></h2>
 <p>El procés de llicenciament d'una aplicació implica escollir una llicència adequada que defineixi com altres persones poden utilitzar, modificar i redistribuir el teu codi.</p>
 <h3 id="codi-obert-o-privat">Codi obert o privat<a class="headerlink" href="#codi-obert-o-privat" title="Permanent link">&para;</a></h3>
@@ -248,23 +260,36 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li><strong>Apache 2.0</strong>: Similar a la MIT, però inclou una clàusula de patents per protegir-te legalment.</li>
 <li><strong>BSD (2 o 3 clàusules)</strong>: Molt semblant a MIT, però amb restriccions addicionals en l'ús del nom de l'autor.</li>
 </ul>
-<p><img alt="image.png" src="../image%2021.png" /></p>
+<p><img alt="image.png" src="../image%2025.png" /></p>
 <h3 id="alguns-exemples-de-llicencies-per-codi-privat">Alguns exemples de llicències per codi privat:<a class="headerlink" href="#alguns-exemples-de-llicencies-per-codi-privat" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Llicències comercials pròpies</strong>, on només tu pots distribuir i vendre el producte.</li>
 <li><strong>Freemium</strong>: On una part del teu programari és gratuïta, però certes funcionalitats són de pagament.</li>
 <li><strong>Llicència d'ús restringit</strong>, on els usuaris poden utilitzar l'aplicació però sense accés al codi font.</li>
 </ul>
-<h3 id="un-cop-escolida-la-llicencia">Un cop escolida la llicència<a class="headerlink" href="#un-cop-escolida-la-llicencia" title="Permanent link">&para;</a></h3>
-<p>Afegeix un fitxer <strong>LICENSE</strong> a l'arrel del teu projecte amb el text de la llicència i especifica la llicència en la documentació i a la teva pàgina web o repositori (GitHub, GitLab, etc.). En projectes públics, pots afegir una nota als teus fitxers font (<code>// Copyright 2025 - Llicència MIT</code>).</p>
 <h3 id="guies-per-triar-llicencies">Guies per triar llicències<a class="headerlink" href="#guies-per-triar-llicencies" title="Permanent link">&para;</a></h3>
 <p>Els textos de les llicències estan predefinits i es poden trobar a fonts oficials o generadors de llicències. Alguns llocs recomanats:</p>
 <ul>
-<li><a href="https://choosealicense.com/"><strong>Choose a License</strong></a> → Guia de GitHub per escollir una llicència i obtenir el text oficial.</li>
+<li><a href="https://choosealicense.com/"><strong>Choose a License</strong></a> → Guia de GitHub per escollir una llicència i obtenir el text oficial. (La que utilitzarem com a exemple).</li>
 <li><a href="https://opensource.org/"><strong>Open Source Initiative</strong></a> → Llista de llicències aprovades de codi obert.</li>
-<li><a href="https://chooser-beta.creativecommons.org/"><strong>Creative Commons</strong></a> → Per llicències no relacionades amb programari.</li>
 </ul>
-<p><img alt="image.png" src="../image%2022.png" /></p>
+<h3 id="choose-a-license">“Choose a License”<a class="headerlink" href="#choose-a-license" title="Permanent link">&para;</a></h3>
+<p><a href="http://Choosalicense.com">Choosalicense.com</a> és una pàgina que t’ajuda a triar el tipus de llicència que hauries d’escollir depenent dels requisits que tens.</p>
+<p>Nosaltres escollirem la del mig, la llicència MIT o “MIT License”. Podem clickar damunnt de l’imatge central.</p>
+<p><img alt="image.png" src="../image%2026.png" /></p>
+<p><em>Click en la imatge per anar al lloc.</em></p>
+<p><img alt="image.png" src="../image%2027.png" /></p>
+<p>Com ja he mencionat, utilitzar-la és tan senzill com afegir un fitxer LICENSE a l’arrel del projecte que contingui el text en pantalla. També tenim una sèrie d’indicadors que ens mostren les condicions que accpetem tant nosaltres com la resta d’usuaris al utilitzar la llicència, podem situar el cursor al damunt per veure una explicaió més detallada.</p>
+<p><img alt="image.png" src="../image%2028.png" /></p>
+<h3 id="un-cop-escolida-la-llicencia">Un cop escolida la llicència<a class="headerlink" href="#un-cop-escolida-la-llicencia" title="Permanent link">&para;</a></h3>
+<p>Afegeix un fitxer <strong>LICENSE</strong> a l'arrel del teu projecte amb el text de la llicència i especifica la llicència en la documentació i a la teva pàgina web o repositori (GitHub, GitLab, etc.). En projectes públics, pots afegir una nota als teus fitxers font (<code>// Copyright 2025 - Llicència MIT</code>).</p>
+<p>Per exemple, si jo vull afegir la llicència MIT al meu projecte d’IntelliJ, genero un fitxer LICENSE.txt a l’arrel i apego el text que acabem de veure:</p>
+<p><img alt="image.png" src="../image%2029.png" /></p>
+<p>Així, ja tindriem la llicència establerta.</p>
+<p>La pàgina, a més, ofereix més informació; com el tipus de llicència a escollir en cas que el teu producte no sigui software, què passa si no utilitzes una llicència, etc.</p>
+<p><img alt="image.png" src="../image%2030.png" /></p>
+<p>Hi ha molts requisits a l’hora d’establir segons quina llicència a segons quin projecte. Cal aprofundir en el tema per tal d’assegurar la validesa de la llicència que escollim.</p>
+<p><img alt="image.png" src="../image%2031.png" /></p>
 
   <br>
     
