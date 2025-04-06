@@ -1,107 +1,629 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-    
-    <link rel="shortcut icon" href="../../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Sprint 3 | Gestió de Dominis i Accessos - Projecte Arnau</title>
-    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 
-    <script src="../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../js/highlight.pack.js"></script>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <base target="_top">
-    <script>
-      var base_url = '../..';
-      var is_top_frame = false;
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Sprint2/Sprint2/">
+      
+      
+        <link rel="next" href="../../Sprint4/Sprint4/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Sprint 3 | Gestió de Dominis i Accessos - Projecte Arnau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
         
-        var pageToc = [
-          {title: "Sprint 3", url: "#_top", children: [
-          ]},
-          {title: "INSTAL\u00b7LACI\u00d3 DEL DOMINI LDAP", url: "#installacio-del-domini-ldap", children: [
-              {title: "Unir equips al domini", url: "#unir-equips-al-domini" },
-              {title: "Un cop a la maquina client", url: "#un-cop-a-la-maquina-client" },
-          ]},
-          {title: "GESTI\u00d3 DEL DOMINI LDAP", url: "#gestio-del-domini-ldap", children: [
-              {title: "ldapsearch", url: "#ldapsearch" },
-              {title: "Afegir dades", url: "#afegir-dades" },
-              {title: "Esborrar dades", url: "#esborrar-dades" },
-              {title: "Per modificar dades", url: "#per-modificar-dades" },
-          ]},
-          {title: "Entorn Gr\u00e0fic - Apache Studio", url: "#entorn-grafic-apache-studio", children: [
-              {title: "Afegir una nova entrada \u201calu2\u201d", url: "#afegir-una-nova-entrada-alu2" },
-              {title: "Copiar l\u2019entrada ja existent de \u201calu1\u201d i cambiar les dades necess\u00e0ries", url: "#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" },
-          ]},
-          {title: "COMPARTIR RECURSOS", url: "#compartir-recursos", children: [
-              {title: "SAMBA", url: "#samba" },
-              {title: "Servidor NFS", url: "#servidor-nfs" },
-              {title: "PERFILS M\u00d2BILS AMB LDAP", url: "#perfils-mobils-amb-ldap" },
-          ]},
-        ];
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-    </script>
-    <script src="../../js/base.js"></script>
-      <script src="../../search/main.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
-    
 
     
     
       
     
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
-    <div class="wm-article-nav pull-right">
-      <a href="../../Sprint4/Sprint4/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../../Sprint4/Sprint4/" class="btn btn-xs btn-link">
-        Sprint 4 | Monitorització, connexió remota i llicenciament
-      </a>
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sprint-3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
     </div>
     
-    <div class="wm-article-nav">
-      <a href="../../Sprint2/Sprint2/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../Sprint2/Sprint2/" class="btn btn-xs btn-link">
-        Sprint 2 | Gestió de la Informació del Sistema i Administració
-      </a>
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Projecte Arnau" class="md-header__button md-logo" aria-label="Projecte Arnau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Projecte Arnau
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sprint 3 | Gestió de Dominis i Accessos
+            
+          </span>
+        </div>
+      </div>
     </div>
     
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Projecte Arnau" class="md-nav__button md-logo" aria-label="Projecte Arnau" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Projecte Arnau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pàgina Principal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sprint2/Sprint2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprint 2 | Gestió de la Informació del Sistema i Administració
+    
+  </span>
+  
 
-    <h1 id="sprint-3">Sprint 3<a class="headerlink" href="#sprint-3" title="Permanent link">&para;</a></h1>
-<h1 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP<a class="headerlink" href="#installacio-del-domini-ldap" title="Permanent link">&para;</a></h1>
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sprint 3 | Gestió de Dominis i Accessos
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sprint 3 | Gestió de Dominis i Accessos
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="Continguts">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installacio-del-domini-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      INSTAL·LACIÓ DEL DOMINI LDAP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="INSTAL·LACIÓ DEL DOMINI LDAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unir-equips-al-domini" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unir equips al domini
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-cop-a-la-maquina-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un cop a la maquina client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestio-del-domini-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      GESTIÓ DEL DOMINI LDAP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GESTIÓ DEL DOMINI LDAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ldapsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ldapsearch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#afegir-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Afegir dades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Afegir dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primera-opcio-per-afegir-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primera opció per afegir dades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segona-opcio-per-afegir-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segona opció per afegir dades
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esborrar-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esborrar dades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-modificar-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per modificar dades
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entorn-grafic-apache-studio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entorn Gràfic - Apache Studio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entorn Gràfic - Apache Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#afegir-una-nova-entrada-alu2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Afegir una nova entrada “alu2”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copiar l’entrada ja existent de “alu1” i cambiar les dades necessàries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compartir-recursos" class="md-nav__link">
+    <span class="md-ellipsis">
+      COMPARTIR RECURSOS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="COMPARTIR RECURSOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAMBA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SAMBA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio-del-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instal·lació del servidor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-usuaris-a-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear usuaris a Samba
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#afegir-usuaris-a-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Afegir usuaris a Samba
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client Samba
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servidor-nfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servidor NFS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Servidor NFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracio-del-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuracio del clients
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfils-mobils-amb-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      PERFILS MÒBILS AMB LDAP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PERFILS MÒBILS AMB LDAP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part client
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sprint4/Sprint4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprint 4 | Monitorització, connexió remota i llicenciament
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Sprint5/Sprint5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprint 5 |
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sprint-3">Sprint 3<a class="headerlink" href="#sprint-3" title="Permanent link">&para;</a></h1>
+<h2 id="installacio-del-domini-ldap">INSTAL·LACIÓ DEL DOMINI LDAP<a class="headerlink" href="#installacio-del-domini-ldap" title="Permanent link">&para;</a></h2>
 <p>Primer canviem el hostname i afegim el nom del domini que estarem utilitzant durant la manipulació del ldap.</p>
 <p><img alt="image.png" src="../image.png" /></p>
 <p><img alt="image.png" src="../image%201.png" /></p>
@@ -125,7 +647,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2011.png" /></p>
 <p><img alt="image.png" src="../image%2012.png" /></p>
 <p>Finalment veiem com amb la comanda <code>slapcat</code> sen’s mostra el nou domini i la seva organització.</p>
-<h2 id="unir-equips-al-domini">Unir equips al domini<a class="headerlink" href="#unir-equips-al-domini" title="Permanent link">&para;</a></h2>
+<h3 id="unir-equips-al-domini">Unir equips al domini<a class="headerlink" href="#unir-equips-al-domini" title="Permanent link">&para;</a></h3>
 <p>Crearem una unitat organitzativa, que es un contenidor dins del directori per guardar objectes com: usuaris i grups.</p>
 <p><img alt="image.png" src="../image%2013.png" /></p>
 <p>Creem un grup anomenat alumnes per a poder posar els usuaris creats i posem els usuaris que volem afegir a la part inferior.</p>
@@ -141,7 +663,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2017.png" /></p>
 <p><img alt="image.png" src="../image%2018.png" /></p>
 <hr />
-<h2 id="un-cop-a-la-maquina-client">Un cop a la maquina client<a class="headerlink" href="#un-cop-a-la-maquina-client" title="Permanent link">&para;</a></h2>
+<h3 id="un-cop-a-la-maquina-client">Un cop a la maquina client<a class="headerlink" href="#un-cop-a-la-maquina-client" title="Permanent link">&para;</a></h3>
 <p>Instal·lem el “nscd”: un dimoni (programa en segon pla) que s’encarrega d’emmagatzemar la memòria cau(cache). Instal·lem també una llibreria que ens permetrà fer la connexió al domini “ldap” des del client amb <code>apt install libnss-ldap</code>.</p>
 <p><img alt="image.png" src="../image%2019.png" /></p>
 <p>Fiquem la “ip” del server (amb el format que es mostra a l’imatge: <code>ldap://server_ip</code>) per conectar-nos.</p>
@@ -176,14 +698,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2034.png" /></p>
 <p><img alt="image.png" src="../image%2035.png" /></p>
 <hr />
-<h1 id="gestio-del-domini-ldap">GESTIÓ DEL DOMINI LDAP<a class="headerlink" href="#gestio-del-domini-ldap" title="Permanent link">&para;</a></h1>
+<h2 id="gestio-del-domini-ldap">GESTIÓ DEL DOMINI LDAP<a class="headerlink" href="#gestio-del-domini-ldap" title="Permanent link">&para;</a></h2>
 <p>Un cop tenim un domini creat hem de ser capaços de gestinar-lo, ja sigui afegint, eliminant o modificant paràmetres del mateix.</p>
 <p>Per fer-ho hem eliminat l’antiga base i n’hem creat una de nova amb <code>dpkg-reconfigure slapd</code></p>
 <p><img alt="image.png" src="../image%2036.png" /></p>
 <p><strong><em>Un breu video per mostra el procés de configuració pas per pas:</em></strong></p>
 <p><a href="../dpkg-reconfigure.mp4">dpkg-reconfigure.mp4</a></p>
 <hr />
-<h2 id="ldapsearch"><code>ldapsearch</code><a class="headerlink" href="#ldapsearch" title="Permanent link">&para;</a></h2>
+<h3 id="ldapsearch"><code>ldapsearch</code><a class="headerlink" href="#ldapsearch" title="Permanent link">&para;</a></h3>
 <p>Una de les coses que podem fer per gestionar la nostra base de dades és filtrar per “uid”, una de les entrades que, en principi, ha de ser única per a cada entrada. Aixó ens mostra totes les dades que hi ha assignades a l’entrada en qüestió.</p>
 <p><img alt="image.png" src="../image%2037.png" /></p>
 <p>També podem filtrar per coses més concretes. Podem, per exemple, filtrar per tots aquells usuaris que disposen d’un objecte “mail” que utilitzi el domini “example.com”. Si hi hagués objectes “mail” amb altres dominis no es mostrarien després de fer aquesta comanda.</p>
@@ -191,13 +713,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>A més, podem fer una cerca que ens mostre només els objectes que ens interessen:</p>
 <p><img alt="image.png" src="../image%2039.png" /></p>
 <p>En aquesta, hem afegit al final de la comanda: “dn” “cn” i “mail” com als únics camps que volem rebre de la cerca.</p>
-<h2 id="afegir-dades">Afegir dades<a class="headerlink" href="#afegir-dades" title="Permanent link">&para;</a></h2>
-<h3 id="primera-opcio-per-afegir-dades">Primera opció per afegir dades<a class="headerlink" href="#primera-opcio-per-afegir-dades" title="Permanent link">&para;</a></h3>
+<h3 id="afegir-dades">Afegir dades<a class="headerlink" href="#afegir-dades" title="Permanent link">&para;</a></h3>
+<h4 id="primera-opcio-per-afegir-dades">Primera opció per afegir dades<a class="headerlink" href="#primera-opcio-per-afegir-dades" title="Permanent link">&para;</a></h4>
 <p><img alt="image.png" src="../image%2040.png" /></p>
 <p>Afegim la base de dades al domini, que afegeix dos “ou” o unitats organitzatives: una per als grup i una altra per als usuaris.</p>
 <p>També afegeix múltiples entrades per a cada grup.</p>
 <hr />
-<h3 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades<a class="headerlink" href="#segona-opcio-per-afegir-dades" title="Permanent link">&para;</a></h3>
+<h4 id="segona-opcio-per-afegir-dades">Segona opció per afegir dades<a class="headerlink" href="#segona-opcio-per-afegir-dades" title="Permanent link">&para;</a></h4>
 <p>En aquest cas hem afegit manualment una ou a la base de dades, que es mostra juntament amb les altres dues anteriors.</p>
 <p><img alt="image.png" src="../image%2041.png" /></p>
 <p><img alt="image.png" src="../image%2042.png" /></p>
@@ -215,14 +737,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2048.png" /></p>
 <p>Aquests són processos que veurem més avant a l’apartat <strong>Per Modificar Dades</strong></p>
 <hr />
-<h2 id="esborrar-dades">Esborrar dades<a class="headerlink" href="#esborrar-dades" title="Permanent link">&para;</a></h2>
+<h3 id="esborrar-dades">Esborrar dades<a class="headerlink" href="#esborrar-dades" title="Permanent link">&para;</a></h3>
 <p>Per esborra dades utilitzarem el següent procés:</p>
 <p><img alt="image.png" src="../image%2049.png" /></p>
 <p><img alt="image.png" src="../image%2050.png" /></p>
 <p>Després d’eliminar ja no tenim l’entrada:</p>
 <p><img alt="image.png" src="../image%2051.png" /></p>
 <hr />
-<h2 id="per-modificar-dades">Per modificar dades<a class="headerlink" href="#per-modificar-dades" title="Permanent link">&para;</a></h2>
+<h3 id="per-modificar-dades">Per modificar dades<a class="headerlink" href="#per-modificar-dades" title="Permanent link">&para;</a></h3>
 <p>Modificar les dades és un procés des del que podem afegir eliminar i modificar totes les dades sense necessitat de utilitzar una comanda individual per a cada objecte.</p>
 <p>Podem fer un fitxer .ldif per a cada objecte o dada que volem modificar o podem fer-ne un que les inclogue totes.</p>
 <p>Primer hem intentat esborrar l’atribut “sn”.</p>
@@ -238,7 +760,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2055.png" /></p>
 <p><img alt="image.png" src="../image%2056.png" /></p>
 <p>Ara abergin ja no té mail.</p>
-<h1 id="entorn-grafic-apache-studio">Entorn Gràfic - Apache Studio<a class="headerlink" href="#entorn-grafic-apache-studio" title="Permanent link">&para;</a></h1>
+<h2 id="entorn-grafic-apache-studio">Entorn Gràfic - Apache Studio<a class="headerlink" href="#entorn-grafic-apache-studio" title="Permanent link">&para;</a></h2>
 <p>Per utilitzar Apache Studio per crear i modificar usuaris priemer hem d’instalar-lo. Podem fer-ho amb la següent comanda:</p>
 <p><code>wget [https://downloads.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz](https://downloads.apache.org/directory/studio/2.0.0.v20210717-M17/ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz)</code></p>
 <p><code>tar -xvzf ApacheDirectoryStudio-2.0.0.v20210717-M17-linux.gtk.x86_64.tar.gz</code></p>
@@ -258,7 +780,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Ara ja tenim la connexió, però hem d’afegir més entrades (Usuaris, Persones, etc) cadascuna de les quals pot tenir els seus propis atributs.</p>
 <p><img alt="image.png" src="../image%2065.png" /></p>
 <p>A continuació podem fer dues coses:</p>
-<h2 id="afegir-una-nova-entrada-alu2">Afegir una nova entrada “alu2”<a class="headerlink" href="#afegir-una-nova-entrada-alu2" title="Permanent link">&para;</a></h2>
+<h3 id="afegir-una-nova-entrada-alu2">Afegir una nova entrada “alu2”<a class="headerlink" href="#afegir-una-nova-entrada-alu2" title="Permanent link">&para;</a></h3>
 <p><img alt="Introduïm el nostre domini, que és a través del que ens conectarem a l’usuari" src="../image%2066.png" /></p>
 <p>Introduïm el nostre domini, que és a través del que ens conectarem a l’usuari</p>
 <p>Ens demana afegir les classes d’objecte, introduïm les que es poden veure a continuació a l’apartat dret (concretament a “Selected object classes”).</p>
@@ -270,7 +792,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Hauríem d’afegir més atributs, per anar bé almenys els mateixos que té “alu1”. Un cop creat l’usuari ja hauríem de ser capaços de conectar-nos a traves d’ldap al terminal</p>
 <p><img alt="image.png" src="../image%2070.png" /></p>
 <hr />
-<h2 id="copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries">Copiar l’entrada ja existent de “alu1” i cambiar les dades necessàries<a class="headerlink" href="#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" title="Permanent link">&para;</a></h2>
+<h3 id="copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries">Copiar l’entrada ja existent de “alu1” i cambiar les dades necessàries<a class="headerlink" href="#copiar-lentrada-ja-existent-de-alu1-i-cambiar-les-dades-necessaries" title="Permanent link">&para;</a></h3>
 <p>En aquest cas només hem de canviar els atributs essencials d’”alu1” a l’hora de copiar l’entrada. </p>
 <p>Primer la copiem.</p>
 <p><img alt="image.png" src="../image%2071.png" /></p>
@@ -282,11 +804,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Un cop afegit el’usuari ja podem conectar-nos amb “alu2”.</p>
 <p><img alt="image.png" src="../image%2074.png" /></p>
 <hr />
-<h1 id="compartir-recursos">COMPARTIR RECURSOS<a class="headerlink" href="#compartir-recursos" title="Permanent link">&para;</a></h1>
-<h2 id="samba">SAMBA<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h2>
+<h2 id="compartir-recursos">COMPARTIR RECURSOS<a class="headerlink" href="#compartir-recursos" title="Permanent link">&para;</a></h2>
+<h3 id="samba">SAMBA<a class="headerlink" href="#samba" title="Permanent link">&para;</a></h3>
 <p>Amb un servidor Samba, es necessita una autenticació d’usuari i pot no només compartir fitxers i carpetes si bé també accés a impresores.</p>
 <p>Afortunadament Samba pot treballar de la mà d’LDAP, amb qui validarem els usuaris que registrem.</p>
-<h3 id="installacio-del-servidor">Instal·lació del servidor<a class="headerlink" href="#installacio-del-servidor" title="Permanent link">&para;</a></h3>
+<h4 id="installacio-del-servidor">Instal·lació del servidor<a class="headerlink" href="#installacio-del-servidor" title="Permanent link">&para;</a></h4>
 <p>Primer instal·lem samba amb <code>apt install samba</code> .</p>
 <p><img alt="image.png" src="../image%2075.png" /></p>
 <p>Després ens dirigirem al fitxer següent, que modificarem amb els següents parametres (Ho afegirem tot al final del fitxer):</p>
@@ -305,7 +827,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
    invalid users = enric</p>
 <p>Per aplicar els canvis hem de reiniciar el servei samb amb les comandes <code>systemctl restart smbd nmbd</code> i <code>systemctl status smbd nmbd</code> per comprobar el reinici i veure si s’han reiniciat sense errors.</p>
 <p><img alt="image.png" src="../image%2078.png" /></p>
-<h3 id="crear-usuaris-a-samba">Crear usuaris a Samba<a class="headerlink" href="#crear-usuaris-a-samba" title="Permanent link">&para;</a></h3>
+<h4 id="crear-usuaris-a-samba">Crear usuaris a Samba<a class="headerlink" href="#crear-usuaris-a-samba" title="Permanent link">&para;</a></h4>
 <p>Ara, crearem els usuaris que hem definit als paràmetres anteriors</p>
 <p><code>useradd -M -s /sbin/nologin raul</code></p>
 <p><code>useradd -M -s /sbin/nologin enric</code></p>
@@ -316,13 +838,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><code>adduser enric dam</code></p>
 <p><code>adduser walid dam</code></p>
 <p><img alt="image.png" src="../image%2080.png" /></p>
-<h3 id="afegir-usuaris-a-samba">Afegir usuaris a Samba<a class="headerlink" href="#afegir-usuaris-a-samba" title="Permanent link">&para;</a></h3>
+<h4 id="afegir-usuaris-a-samba">Afegir usuaris a Samba<a class="headerlink" href="#afegir-usuaris-a-samba" title="Permanent link">&para;</a></h4>
 <p>Per últim queda fegir els usuaris de la màquina a Samba a traves de la comanda <code>smbpasswd -a &lt;usuari&gt;</code> i a cadascún li ficarem la seva contrasenya.</p>
 <p><code>smbpasswd -a raul</code></p>
 <p><code>smbpasswd -a enric</code></p>
 <p><code>smbpasswd -a walid</code></p>
 <p><img alt="image.png" src="../image%2081.png" /></p>
-<h3 id="client-samba">Client Samba<a class="headerlink" href="#client-samba" title="Permanent link">&para;</a></h3>
+<h4 id="client-samba">Client Samba<a class="headerlink" href="#client-samba" title="Permanent link">&para;</a></h4>
 <p>Ara instal·larem el client amb <code>apt install smbclient</code> .</p>
 <p><img alt="image.png" src="../image%2082.png" /></p>
 <p>Obrim l’explorador de fitxers, a l’opció “Otras ubicaciones”. Buscarem la carpeta<code>/perfils</code> compartida amb l’adreça <code>smb://&lt;ipservidor&gt;/perfils.</code></p>
@@ -347,7 +869,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="Captura de pantalla de 2025-03-12 16-29-07.png" src="../Captura_de_pantalla_de_2025-03-12_16-29-07.png" /></p>
 <p><img alt="Captura de pantalla de 2025-03-12 16-29-16.png" src="../Captura_de_pantalla_de_2025-03-12_16-29-16.png" /></p>
 <hr />
-<h2 id="servidor-nfs">Servidor NFS<a class="headerlink" href="#servidor-nfs" title="Permanent link">&para;</a></h2>
+<h3 id="servidor-nfs">Servidor NFS<a class="headerlink" href="#servidor-nfs" title="Permanent link">&para;</a></h3>
 <p>Tants servidor samba com NFS serveixen per compratir recursos. NFS permet fer auth en usuari però amb kerberos, i és tant difícil que és millor utilitzar samba.</p>
 <p>Primer instal·lem els paquets necessaris amb <code>apt install nfs-kernel-server</code> per utilitzar la funció i preparem la carpeta on es concectaran tant el nostre windows com l’ubuntu.</p>
 <p><img alt="image.png" src="../image%2090.png" /></p>
@@ -355,7 +877,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2091.png" /></p>
 <p>Reiniciem el servei per aplicar els canvis.</p>
 <p><img alt="image.png" src="../image%2092.png" /></p>
-<h3 id="configuracio-del-clients">Configuracio del clients<a class="headerlink" href="#configuracio-del-clients" title="Permanent link">&para;</a></h3>
+<h4 id="configuracio-del-clients">Configuracio del clients<a class="headerlink" href="#configuracio-del-clients" title="Permanent link">&para;</a></h4>
 <p>Ara instal·lem el paquet necessari per muntar la carpeta compartida al nostre ubuntu, contràriament no podrem afegir res ni fer servir la carpeta compartida.</p>
 <p><img alt="image.png" src="../image%2093.png" /></p>
 <p>Ara, hem de crear una carpeta que apuntara a la carpeta que es comparteix entre els sistemes i muntarla a la ip del servidor amb la seva ruta.</p>
@@ -371,8 +893,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p><img alt="image.png" src="../image%2097.png" /></p>
 <p>Finalment podem veure com el fitxer windows.txt, que hem creat al sistema Windows, apareix a la carpeta desde el sistema ubuntu.</p>
 <p><img alt="image.png" src="../image%2098.png" /></p>
-<h2 id="perfils-mobils-amb-ldap">PERFILS MÒBILS AMB LDAP<a class="headerlink" href="#perfils-mobils-amb-ldap" title="Permanent link">&para;</a></h2>
-<h3 id="part-server">Part server<a class="headerlink" href="#part-server" title="Permanent link">&para;</a></h3>
+<h3 id="perfils-mobils-amb-ldap">PERFILS MÒBILS AMB LDAP<a class="headerlink" href="#perfils-mobils-amb-ldap" title="Permanent link">&para;</a></h3>
+<h4 id="part-server">Part server<a class="headerlink" href="#part-server" title="Permanent link">&para;</a></h4>
 <p>Per fer-ho amb NFS, necessitem instal·lar el següent paquet</p>
 <p><img alt="image.png" src="../image%2099.png" /></p>
 <p>Creem la carpeta on es compartiràn els fitxers.</p>
@@ -391,7 +913,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>en el meu cas: <code>ldapadd -c -x -D "cn=admin,dc=joel,dc=com" -W -f fitxer.ldif</code></p>
 <p><em>Nota: Es destaca que; fitxer.ldif fa referència a l’usuri o grup que volem afegir que, com hem vist, tenen fitxers diferents.</em> </p>
 <p><img alt="image.png" src="../image%20105.png" /></p>
-<h3 id="part-client">Part client<a class="headerlink" href="#part-client" title="Permanent link">&para;</a></h3>
+<h4 id="part-client">Part client<a class="headerlink" href="#part-client" title="Permanent link">&para;</a></h4>
 <p>Ja només ens queda configurar els usuaris a la màquina client.</p>
 <p>Instal·lem paquets necessaris.</p>
 <p><img alt="image.png" src="../image%20106.png" /></p>
@@ -411,42 +933,51 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>I com aquesta te el fitxer “hola” que acabem de crear.</p>
 <p><img alt="image.png" src="../image%20115.png" /></p>
 
-  <br>
-    
 
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
     
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "toc.follow", "toc.autohide"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../../Sprint4/Sprint4/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../../Sprint4/Sprint4/" class="btn btn-xs btn-link">
-        Sprint 4 | Monitorització, connexió remota i llicenciament
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../../Sprint2/Sprint2/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../Sprint2/Sprint2/" class="btn btn-xs btn-link">
-        Sprint 2 | Gestió de la Informació del Sistema i Administració
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
-</footer>
-
-</body>
+  </body>
 </html>
