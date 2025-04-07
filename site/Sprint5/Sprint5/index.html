@@ -398,6 +398,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#installacio-dubuntu-amb-dualboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instal·lació d’Ubuntu amb DualBoot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instal·lació d’Ubuntu amb DualBoot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#com-arreglar-larrancador-de-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com arreglar l’arrancador de Windows.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -511,6 +535,84 @@
 <p>Aquí seleccionarem l’opció “Protocolo de Internet versión 4 (TCP/IPv4)” i clickarem a “Propiedades”, on establirem l’IP necessària per fer la connexió.</p>
 <p><img alt="image.png" src="../image%2045.png" /></p>
 <p><img alt="image.png" src="../image%2046.png" /></p>
+<h2 id="installacio-dubuntu-amb-dualboot">Instal·lació d’Ubuntu amb DualBoot<a class="headerlink" href="#installacio-dubuntu-amb-dualboot" title="Permanent link">&para;</a></h2>
+<p>Un cop instal·lat Windows 10 al client, volem instal·lar també Ubuntu 24. Per fer-ho utilitzarem DualBoot.</p>
+<p>Primer hem de canviar la imatge ISO amb la opció just al costat de l’opció Unidad Óptica: (la que te forma de disc blau) per canviar a Ubuntu24.</p>
+<p><img alt="image.png" src="../image%2047.png" /></p>
+<p><img alt="image.png" src="../image%2048.png" /></p>
+<p>Executem la MV i ens surt l’instal·lador d’Ubuntu. Seleccionem la primera opció per instal·lar.</p>
+<p><img alt="image.png" src="../image%2049.png" /></p>
+<p>Procedim amb l’instal·lació</p>
+<p><img alt="image.png" src="../image%2050.png" /></p>
+<p><img alt="image.png" src="../image%2051.png" /></p>
+<p>Seleccionem “Instalación Interactiva”.</p>
+<p><img alt="image.png" src="../image%2052.png" /></p>
+<p>El més important per utilitzar DualBoot, seleccionar la opció “Instalar Ubuntu junto a Windows 10”.</p>
+<p><img alt="image.png" src="../image%2053.png" /></p>
+<p>Creem l’usuari amb la seva contrasenya.</p>
+<p><img alt="image.png" src="../image%2054.png" /></p>
+<p>Li donem a “Instalar”</p>
+<p><img alt="image.png" src="../image%2055.png" /></p>
+<p>Acaba l’instal·lació i rebem un error, però és normal, li donem a “Cancel” i reiniciem.</p>
+<p><img alt="image.png" src="../image%2056.png" /></p>
+<p>Quan Veiguem aquesta pantalla tanquem la MV, anem a les opcions d’ISO anteriors i desconectem la ISO (no hem de tindre cap ISO col·locada).</p>
+<p><img alt="image.png" src="../image%2057.png" /></p>
+<p>Després, tornem a obrir la màquina i veurem com el GRUB ens pregunta pel sistema que volem utilitzar. Provem a obrir Ubuntu.</p>
+<p><img alt="image.png" src="../image%2058.png" /></p>
+<h3 id="com-arreglar-larrancador-de-windows">Com arreglar l’arrancador de Windows.<a class="headerlink" href="#com-arreglar-larrancador-de-windows" title="Permanent link">&para;</a></h3>
+<p>A continuació farem una prova on veurem com gestionar una situació comú del DualBoot, on el sistema d’arranc de Windows es desactiva al eliminar la partició amb Ubuntu. Primer descarreguem la ISO  de <a href="https://gparted.org/download.php">Gparted</a>.</p>
+<p><img alt="image.png" src="../image%2059.png" /></p>
+<p>Afegim la ISO a la MV i la executem.</p>
+<p><img alt="image.png" src="../image%2060.png" /></p>
+<p>Sen’s executa Gparted amb que destruirem la partició d’Ubuntu. Seleccionem la priemera opció.</p>
+<p><img alt="image.png" src="../image%2061.png" /></p>
+<p>Li indiquem que no toque el mapejat del teclat.</p>
+<p><img alt="image.png" src="../image%2062.png" /></p>
+<p>Apareixerà el següent menú, seleccionem l’idioma que vulguem: jo selecciono català.</p>
+<p><img alt="image.png" src="../image%2063.png" /></p>
+<p>Arribarem al menú de les particions i eliminarem la de Ubuntu, que es la del sistema de fitxers ext4.</p>
+<p><img alt="image.png" src="../image%2064.png" /></p>
+<p>Apliquem els canvis.</p>
+<p><img alt="image.png" src="../image%2065.png" /></p>
+<p>Veiem com la partició ja no esta assignada.</p>
+<p><img alt="image.png" src="../image%2066.png" /></p>
+<p>Ara, el grub busca també ubuntu, però com no el troba entra en panic.</p>
+<p><img alt="image.png" src="../image%2067.png" /></p>
+<p><strong>Com arreglar-ho?</strong></p>
+<p>Per arreglar-ho tornem a ficar la ISO de windows i executem la MV.</p>
+<p><img alt="image.png" src="../image%2068.png" /></p>
+<p>Ens torna a sortir l’instal·lador de Windows. Cliquem siguiente.</p>
+<p><img alt="image.png" src="../image%2069.png" /></p>
+<p>A la següent pantalla, seleccionem l’opció “Reparar el equipo”.</p>
+<p><img alt="image.png" src="../image%2070.png" /></p>
+<p>Seleccionem “Solucionar Problemas”.</p>
+<p><img alt="image.png" src="../image%2071.png" /></p>
+<p>Després l’opció “Símbolo del sistema”.</p>
+<p><img alt="image.png" src="../image%2072.png" /></p>
+<p>Ara haurem d’entrar  a la configuració del disc i executar una sèrie de comandes:</p>
+<p><img alt="image.png" src="../image%2073.png" /></p>
+<p>Primer exectuem <code>diskpart</code> .</p>
+<p>Després executarem totes les comandes en ordre:</p>
+<p><code>list disk</code> 
+<code>select disk 0</code> 
+<code>list partition</code></p>
+<p><img alt="image.png" src="../image%2074.png" /></p>
+<p>Seguirem amb les comandes:</p>
+<p><code>select partition 1</code> 
+<code>active</code>
+<code>exit</code></p>
+<p><img alt="image.png" src="../image%2075.png" /></p>
+<p>Per últim executarem les següents comandes:</p>
+<p><strong><code>c:</code></strong></p>
+<p><strong><code>bootrec /fixmbr</code></strong></p>
+<p><strong><code>bootrec /fixboot</code></strong></p>
+<p><strong><code>bootrec /rebuildbcd</code></strong></p>
+<p><strong><code>exit</code></strong></p>
+<p><img alt="image.png" src="../image%2076.png" /></p>
+<p>Apaguem l’equip i provem a iniciar la MV.</p>
+<p><img alt="image.png" src="../image%2077.png" /></p>
+<p>Per acabar, veiem com la MV ja funciona un altre cop.</p>
+<p><img alt="image.png" src="../image%2078.png" /></p>
 
 
 
