@@ -515,6 +515,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#copies-de-seguretat-amb-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Còpies de seguretat amb Scripts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Còpies de seguretat amb Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatitzacio-de-lscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatització de l’script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -555,11 +579,11 @@
 <p><img alt="image.png" src="../image%203.png" /></p>
 <p>“<strong>Inicio</strong>”: Mostra quins programes s’executen automàticament quan arranques el sistema.</p>
 <p><img alt="image.png" src="../image%204.png" /></p>
-<p>”<strong>Usuarios</strong>”: Mostra els usuaris actius i els processos associats a cada sessió.</p>
+<p>”Usuarios”: Mostra els usuaris actius i els processos associats a cada sessió.</p>
 <p><img alt="image.png" src="../image%205.png" /></p>
-<p>”<strong>Detalles</strong>”: Llista TOTS els processos, amb el seu nom real p.e.: <code>svchost.exe</code>, ID de procés (PID), estat, ús de CPU, memòria, prioritat, etc.</p>
+<p>”Detalles”: Llista TOTS els processos, amb el seu nom real p.e.: <code>svchost.exe</code>, ID de procés (PID), estat, ús de CPU, memòria, prioritat, etc.</p>
 <p><img alt="image.png" src="../image%206.png" /></p>
-<p>“<strong>Servicios</strong>”: Mostra tots els serveis de Windows, el seu estat (actiu/inactiu) i el PID si estan actius.</p>
+<p>“Servicios”: Mostra tots els serveis de Windows, el seu estat (actiu/inactiu) i el PID si estan actius.</p>
 <p><img alt="image.png" src="../image%207.png" /></p>
 <h3 id="finalitzar-processos">Finalitzar Processos<a class="headerlink" href="#finalitzar-processos" title="Permanent link">&para;</a></h3>
 <p>Finalitzar un procés és un recurs que podem arribar a necessitar fer servir, ja sigui per algun programa que se’ns ha quedat congelat o perque el nostre sistema està patint amb els recursos justos.</p>
@@ -681,6 +705,38 @@
 <p>Un cop Windows acabe de fer la còpia, veurem una sèrie de configuracions de les quals es destaca, la de Restaurar els fitxers “Restaurar mis archivos”. </p>
 <p><img alt="image.png" src="../image%2054.png" /></p>
 <p>Dintre els menús hi ha una extensa configuració per restaura TOTS I CADA UN dels fitxers guardats a la còpia de forma individual. Caldrà una búsqueda més extensa per tal de recuperar els fitxers.</p>
+<h2 id="copies-de-seguretat-amb-scripts">Còpies de seguretat amb Scripts<a class="headerlink" href="#copies-de-seguretat-amb-scripts" title="Permanent link">&para;</a></h2>
+<p>Si el que volem és fer un script per fer les còpies creem l’srcipt a l’Escriptori amb el contingut següent:</p>
+<p><code>@echo off
+setlocal</code></p>
+<p><code>if not exist "E:\CopiesUsuaris\%USERNAME%" (
+mkdir "E:\CopiesUsuaris\%USERNAME%"
+)</code></p>
+<p><code>REM Copiar els fitxers amb ROBOCOPY
+robocopy "C:\Users\%USERNAME%" "E:\CòpiesUsuaris\%USERNAME%" /MIR /Z /R:3 /W:5 /XD "AppData"</code></p>
+<p><code>echo Còpia de seguretat completada.
+pause</code></p>
+<p><img alt="image.png" src="../image%2055.png" /></p>
+<h3 id="automatitzacio-de-lscript">Automatització de l’script<a class="headerlink" href="#automatitzacio-de-lscript" title="Permanent link">&para;</a></h3>
+<p>Amb l’anterior punt fem la còpia manualment, però i si volem que es faci automàticament?</p>
+<p>Hem de configurar-ho:</p>
+<p>Premem <code>Windows + R</code> i escrivim <code>gpedit.msc</code> .</p>
+<p><img alt="image.png" src="../image%2056.png" /></p>
+<p>Ens dirigim a “Configuración de usuario”.</p>
+<p><img alt="image.png" src="../image%2057.png" /></p>
+<p>Després a “Configuración de Windows”.</p>
+<p><img alt="image.png" src="../image%2058.png" /></p>
+<p>Llavors naveguem fins a “Scripts”.</p>
+<p><img alt="image.png" src="../image%2059.png" /></p>
+<p>I, per últim, cliquem a “Iniciar sesión”.</p>
+<p><img alt="image.png" src="../image%2060.png" /></p>
+<p>Per últim agreguem l’script a la llista.</p>
+<p><img alt="image.png" src="../image%2061.png" /></p>
+<p><img alt="image.png" src="../image%2062.png" /></p>
+<p><img alt="image.png" src="../image%2063.png" /></p>
+<p>Ara si iniciem sessió veurem com sen’s ha creat la còpia. Això passarà cada cop que iniciem sessió.</p>
+<p><img alt="image.png" src="../image%2064.png" /></p>
+<p><img alt="image.png" src="../image%2065.png" /></p>
 
 
 
